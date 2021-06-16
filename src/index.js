@@ -5,10 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, compose, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import breweryReducer from './reducers/breweryReducer';
+import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 
-const store = createStore(breweryReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 
 ReactDOM.render(
   <React.StrictMode>
