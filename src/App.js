@@ -2,6 +2,7 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getBreweries } from './actions/brewery';
 import React, { useEffect } from 'react';
+import SignInForm from './components/SignInForm';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <SignInForm />
     </div>
   );
 }
