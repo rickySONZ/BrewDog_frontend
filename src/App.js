@@ -1,23 +1,34 @@
 import './App.css';
 import { connect } from 'react-redux'
-import Home from './components/Home'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
+import { getBreweries } from './actions/brewery';
+import { useEffect } from 'react';
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    props.getBreweries()
+    return () => {
+
+    };
+  }, []);
 
   return (
     <Router>
     <div className="App">
-      <Route exact path ="/" component={Home} />
       <Route exact path="/login" component={SignInForm} />
-      <Route exact path="/register" componet={RegistrationForm} />
+      <Route exact path="/register" component={RegistrationForm} />
 
     </div>
     </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return ({breweries: state.breweriesR.breweries,
+            loading: state.breweriesR.loading})
+}
+
+export default connect(mapStateToProps, {getBreweries})(App);

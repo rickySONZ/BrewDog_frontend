@@ -8,7 +8,9 @@ const breweryReducer = (state = initialState, action) => {
     switch(action.type){
         case "GET_BREWERIES":
             return {
-                ...state, breweries: [...state.breweries, action.payload], loading: false
+                ...state,
+                 breweries: [ ...action.payload],
+                loading: false
             }
             default:
                 return state
