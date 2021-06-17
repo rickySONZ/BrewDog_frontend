@@ -1,23 +1,23 @@
 import './App.css';
 import { connect } from 'react-redux'
-import { getBreweries } from './actions/brewery';
-import React, { useEffect } from 'react';
+import Home from './components/Home'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import SignInForm from './components/SignInForm';
+import RegistrationForm from './components/RegistrationForm';
 
 function App() {
 
-  useEffect(() => {
-    getBreweries()
-    return () => {
-      console.log("unmounting")
-    };
-  }, []);
-
   return (
+    <Router>
     <div className="App">
-      <SignInForm />
+      <Route exact path ="/" component={Home} />
+      <Route exact path="/login" component={SignInForm} />
+      <Route exact path="/register" componet={RegistrationForm} />
+
     </div>
+    </Router>
   );
 }
 
-export default connect(null, { getBreweries })(App);
+export default App;

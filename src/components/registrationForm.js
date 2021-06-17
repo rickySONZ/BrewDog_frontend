@@ -1,6 +1,6 @@
 import React from 'react';
 
-const registrationForm = () => {
+const RegistrationForm = () => {
     return (
         <div>
             <form className= "reistration-form">
@@ -10,4 +10,4 @@ const registrationForm = () => {
     );
 }
 
-export default registrationForm;
+export default RegistrationForm;
