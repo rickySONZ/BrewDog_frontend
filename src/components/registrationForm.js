@@ -1,36 +1,37 @@
-import React, { useState} from 'react';
+import { connect } from 'react-redux';
+import { userPostFetch } from '../actions/auth';
+import React, { Component } from 'react';
 
+class RegistrationForm extends Component {
 
-const RegistrationForm = () => {
-
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [passwordConfirmation, setPasswordConfirmation] = useState("")
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
-
-    const handleOnChange = (event) => {
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
-          })
+        })
     }
-    
-    
-    return (
-        <div>
-            <form className= "reistration-form" onSubmit={handleSubmit}>
+
+    handleSubmit = event => {
+        event.preventDefault()
+        this.props.userPostFetch(this.state)
+    }
+    render() {
+        return (
+            <div>
+            <form className= "reistration-form" onSubmit={this.handleSubmit}>
             <h1>Sign Up</h1>
-            <input type = "text" placeholder = "Username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/><br></br>
-            <input type = "text" placeholder = "Email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/><br></br>
-            <input type = "password" placeholder = "Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br></br>
-            <input type = "password" placeholder = "Confirm Password" name="password-confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/><br></br>
+            <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
+            <input type = "text" placeholder = "Email" name="email" value={this.email} onChange={this.handleChange}/><br></br>
+            <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
+            {/* <input type = "password" placeholder = "Confirm Password" name="password_confirmation" value={this.passwordConfirmation} onChange={this.handleChange}/><br></br> */}
             <input type = "submit" value = "Sign Up"/>
             </form>
         </div>
-    );
+        );
+    }
 }
 
-export default RegistrationForm;
+const mapDispatchToProps = dispatch => ({
+    userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
+})
+
+export default connect(null, mapDispatchToProps)(RegistrationForm);
