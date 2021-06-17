@@ -5,11 +5,14 @@ import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
 import { getBreweries } from './actions/brewery';
 import { useEffect } from 'react';
+import { getProfileFetch } from './actions/auth'
 
 function App(props) {
 
+
   useEffect(() => {
     props.getBreweries()
+    props.getProfileFetch()
     return () => {
 
     };
@@ -28,7 +31,13 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return ({breweries: state.breweriesR.breweries,
-            loading: state.breweriesR.loading})
+            loading: state.breweriesR.loading,
+        })
 }
 
-export default connect(mapStateToProps, {getBreweries})(App);
+const mapDispatchToProps = dispatch => ({
+  getBreweries: () => dispatch(getBreweries()),
+  getProfileFetch: () => dispatch(getProfileFetch())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
