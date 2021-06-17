@@ -1,27 +1,39 @@
-import React from 'react';
-import { useState } from "react";
+import { userLoginFetch } from '../actions/auth'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const SignInForm = () => {
+class SignInForm extends Component {
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    handleChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
-    
 
-    return (
-        <div className = "sign-in-div">
-            <form className = "sign-in-form" onSubmit={handleSubmit}>
-                <h1>Login</h1>
-                <input type = "text" placeholder = "Username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/><br></br>
-                <input type = "password" placeholder = "Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br></br>
-                <input type = "submit" value="Login" />
-            </form>
-            
-        </div>
-    );
+    handleSubmit = event => {
+        event.preventDefault()
+        this.props.userLoginFetch(this.state)
+    }
+    render() {
+        return (
+            <div>
+                <form className = "sign-in-form" onSubmit={this.handleSubmit}>
+                    <h1>Login</h1>
+                    <input type = "username" placeholder = "Username" name="username" value={this.password} onChange={this.handleChange}/><br></br>
+                    <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
+                    <input type= "submit" value = "Login"></input>
+                </form>
+            </div>
+        );
+    }
+}
+const mapDispatchToProps = dispatch => ({
+    userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+})
+
+const mapStateToProps = (state) => {
+    return ({current_user: state.signInR.current_user})
 }
 
-export default SignInForm;
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
