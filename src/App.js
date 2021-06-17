@@ -6,6 +6,8 @@ import RegistrationForm from './components/RegistrationForm';
 import { getBreweries } from './actions/brewery';
 import { useEffect } from 'react';
 import { getProfileFetch } from './actions/auth'
+import Home from './components/Home';
+
 
 function App(props) {
 
@@ -21,6 +23,7 @@ function App(props) {
   return (
     <Router>
     <div className="App">
+    <Route exact path="/" component={Home} />
       <Route exact path="/login" component={SignInForm} />
       <Route exact path="/register" component={RegistrationForm} />
 
@@ -32,6 +35,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return ({breweries: state.breweriesR.breweries,
             loading: state.breweriesR.loading,
+            currentUser: state.signInR.currentUser
         })
 }
 

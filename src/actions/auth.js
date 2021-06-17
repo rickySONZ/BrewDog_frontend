@@ -25,7 +25,7 @@ const loginUser = userObj => ({
     payload: userObj
 })
 
-export const  userLoginFetch = user => {
+export const userLoginFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/login", {
             method: "POST",
@@ -72,3 +72,7 @@ export const getProfileFetch = () => {
         }
     }
 }
+
+export const logoutUser = () => ({
+    type: 'LOGOUT_USER'
+})
