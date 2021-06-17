@@ -17,7 +17,7 @@ class RegistrationForm extends Component {
     render() {
         return (
             <div>
-            <form className= "reistration-form" onSubmit={this.handleSubmit}>
+            <form className= "registration-form" onSubmit={this.handleSubmit}>
             <h1>Sign Up</h1>
             <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
             <input type = "text" placeholder = "Email" name="email" value={this.email} onChange={this.handleChange}/><br></br>
@@ -34,4 +34,8 @@ const mapDispatchToProps = dispatch => ({
     userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
 })
 
-export default connect(null, mapDispatchToProps)(RegistrationForm);
+const mapStateToProps = (state) => {
+    return ({current_user: state.signInR.current.current_user})
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);

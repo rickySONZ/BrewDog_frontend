@@ -11,7 +11,7 @@ export const userPostFetch = user => {
         .then(resp=> resp.json())
         .then(data => {
             if (data.message){
-                console.log(data.message)
+                console.log(data.errors)
             } else {
                 localStorage.setItem("token", data.token)
                 dispatch(loginUser(data.user))
