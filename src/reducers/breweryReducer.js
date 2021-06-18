@@ -2,6 +2,7 @@
 const initialState = {
     breweries: [],
     loading: false,
+    searchedBreweries: []
 }
 
 const breweryReducer = (state = initialState, action) => {
@@ -12,7 +13,13 @@ const breweryReducer = (state = initialState, action) => {
                  breweries: [ ...action.payload],
                 loading: false
             }
-            
+        case "GET_SEARCHED_BREWERIES":
+            return {
+                ...state,
+                searchedBreweries: [...action.payload],
+                loading: false
+            }
+
             default:
                 return state
     }

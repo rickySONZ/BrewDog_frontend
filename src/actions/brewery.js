@@ -1,3 +1,4 @@
+
 export const getBreweries = () => {
     return (dispatch) => {
         fetch("http://localhost:8080/api/v1/breweries")
@@ -12,16 +13,16 @@ export const getBreweries = () => {
     }
 }
 
-export const getSearchedBreweries = () => {
-    return(dispatch, searchedBreweries) => {
+export const getSearchedBreweries = (searchedBreweries) => {
+    return(dispatch) => {
             dispatch({
                 type: "GET_SEARCHED_BREWERIES",
                 payload: searchedBreweries
-            })
+            })}
         }
     //     (searchedBreweries => {dispatch({
     //     type: "GET_SEARCHED_BREWERIES",
     //     payload: searchedBreweries
     // })}
     //     )}
-}
+
