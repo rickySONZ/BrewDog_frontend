@@ -12,6 +12,7 @@ const breweryReducer = (state = initialState, action) => {
                  breweries: [ ...action.payload],
                 loading: false
             }
+            
             default:
                 return state
     }

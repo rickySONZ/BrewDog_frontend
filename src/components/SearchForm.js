@@ -1,5 +1,6 @@
-import React, { useState, setState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { getSearchedBreweries } from '../actions/brewery';
 
 
 function SearchForm(props) {
@@ -17,9 +18,6 @@ function SearchForm(props) {
         let filteredBreweries = props.breweries.filter(b => b.city === searchCity && b.state === searchState)
         setSearchedBreweries(filteredBreweries)
         console.log(searchedBreweries)
-        // console.log(searchedBreweries)
-        // setSearchCity("")
-        // setSearchState("")
     }
 
 
@@ -36,7 +34,11 @@ function SearchForm(props) {
 
 const mapStateToProps = state => {
     return ({breweries: state.breweriesR.breweries,
-    current_user: state.signInR.current_user})
+    currentUser: state.signInR.currentUser})
 }
+
+const mapDispatchToProps = dispatch => ({
+    getSearchedBreweries: () => dispatch(getSearchedBreweries())
+})
 
 export default connect(mapStateToProps)(SearchForm);

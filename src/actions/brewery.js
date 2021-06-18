@@ -11,3 +11,17 @@ export const getBreweries = () => {
         })
     }
 }
+
+export const getSearchedBreweries = () => {
+    return(dispatch, searchedBreweries) => {
+            dispatch({
+                type: "GET_SEARCHED_BREWERIES",
+                payload: searchedBreweries
+            })
+        }
+    //     (searchedBreweries => {dispatch({
+    //     type: "GET_SEARCHED_BREWERIES",
+    //     payload: searchedBreweries
+    // })}
+    //     )}
+}
