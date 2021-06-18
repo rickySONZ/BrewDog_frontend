@@ -1,12 +1,16 @@
 import React from 'react';
-import NavLink from './NavLink';
+import Logout from './Logout'
+
 
 const Navbar = () => {
     return (
         <div>
-            
-                <NavLink to="/" >Home</NavLink>
-            
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <Logout />
+                </ul>
+            </nav>
         </div>
     );
 }

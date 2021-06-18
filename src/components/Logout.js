@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getProfileFetch, logoutUser } from '../actions/auth';
 
-
-
-
 class Logout extends Component {
 
     componentWillMount = () => {
@@ -19,9 +16,9 @@ class Logout extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleClick}>Log Out</button>
-            </div>
+            <>
+                <li><button onClick={this.handleClick}>Log Out</button></li>
+            </>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
-import Logout from './Logout';
+import Navbar from './Navbar';
 
 class Home extends Component {
 
@@ -19,7 +19,7 @@ class Home extends Component {
        
         return (
             <div>
-                <Logout />
+            <Navbar />
             </div>
         );
     }
