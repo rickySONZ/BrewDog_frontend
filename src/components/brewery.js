@@ -4,7 +4,7 @@ const Brewery = (props) => {
     return (
         <div>
 
-            <li>{props.name}</li>
+            <li>{props.name}<br></br>{props.address}</li>
         </div>
     );
 }

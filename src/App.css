@@ -57,3 +57,8 @@ nav button{
 	outline: inherit;
 }
 
+.breweries-container li {
+  list-style-type: none;
+  padding: 1%;
+}
+
