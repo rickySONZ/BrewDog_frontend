@@ -7,10 +7,12 @@ import { getBreweries } from './actions/brewery';
 import { useEffect } from 'react';
 import { getProfileFetch } from './actions/auth'
 import Home from './components/Home';
+import Navbar from './components/Navbar'
 
 
 function App(props) {
 
+  const isLoggedIn = props.currentUser && props.currentUser.logged_in
 
   useEffect(() => {
     props.getBreweries()
@@ -23,15 +25,16 @@ function App(props) {
 
   return (
     <Router>
+    {isLoggedIn ? <Navbar/> : null}
     <div className="App">
     <Route exact path="/" component = {Home}>
-    {props.currentUser && props.currentUser.logged_in ? <Home/> : <SignInForm />}
+    {isLoggedIn ? <Home/> : <SignInForm />}
     </Route>
       <Route exact path="/login" >
-        {props.currentUser && props.currentUser.logged_in ? <Redirect to="/" /> : <SignInForm />}
+        {isLoggedIn ? <Redirect to="/" /> : <SignInForm />}
       </Route>
       <Route exact path="/register" component={RegistrationForm}>
-      {props.currentUser && props.currentUser.logged_in ? <Redirect to="/" /> : <RegistrationForm />}
+      {isLoggedIn ? <Redirect to="/" /> : <RegistrationForm />}
       </Route>
 
     </div>
