@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
+import Breweries from './Breweries';
 import SearchForm from './SearchForm';
+
 
 
 class Home extends Component {
@@ -15,6 +17,7 @@ class Home extends Component {
         return (
             <div>
                 <SearchForm />
+                <Breweries/>
             </div>
         );
     }

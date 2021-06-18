@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Brewery = (b) => {
+const Brewery = (props) => {
     return (
         <div>
-            <li>{b.name}</li>
+
+            <li>{props.name}</li>
         </div>
     );
 }
