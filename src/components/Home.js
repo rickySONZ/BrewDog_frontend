@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
-import Navbar from './Navbar';
+import SearchForm from './SearchForm';
+
 
 class Home extends Component {
 
@@ -9,16 +10,11 @@ class Home extends Component {
         this.props.getProfileFetch()
     }
 
-    handleClick = event => {
-        event.preventDefault()
-        localStorage.removeItem("token")
-        this.props.logoutUser()
-    }
-
     render() {
        
         return (
             <div>
+                <SearchForm />
             </div>
         );
     }
