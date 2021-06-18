@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/auth';
+import { logoutUser, getProfileFetch } from '../actions/auth';
 
 
 class Home extends Component {
 
+    componentWillMount = () => {
+        this.props.getProfileFetch()
+    }
 
     handleClick = event => {
         event.preventDefault()
@@ -13,18 +16,20 @@ class Home extends Component {
     }
 
     render() {
+       
         return (
             <div>
-                {this.props.currentUser ? <button onClick={this.handleClick}>Log Out</button> : null}
+                <button onClick={this.handleClick}>Log Out</button>
             </div>
         );
     }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     currentUser: state.signInR.currentUser
   })
 
   const mapDispatchToProps = dispatch => ({
+    getProfileFetch: () => dispatch(getProfileFetch()),
       logoutUser: () => dispatch(logoutUser())
   })
 
