@@ -23,6 +23,7 @@ class SignInForm extends Component {
                     <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
                     <input type= "submit" value = "Login"></input>
                 </form>
+                <a href="/register">Don't Have an Account?<br></br>Click Here to Sign Up</a>
             </div>
         );
     }

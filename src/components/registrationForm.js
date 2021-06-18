@@ -25,6 +25,7 @@ class RegistrationForm extends Component {
             {/* <input type = "password" placeholder = "Confirm Password" name="password_confirmation" value={this.passwordConfirmation} onChange={this.handleChange}/><br></br> */}
             <input type = "submit" value = "Sign Up"/>
             </form>
+            <a href="/login">Already Have an Account?<br></br>Click Here to Sign Up</a>
         </div>
         );
     }

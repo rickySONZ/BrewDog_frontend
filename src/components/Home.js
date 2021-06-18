@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
+import Navbar from './Navbar';
 
 
 class Home extends Component {
@@ -19,6 +20,7 @@ class Home extends Component {
        
         return (
             <div>
+            <Navbar />
                 <button onClick={this.handleClick}>Log Out</button>
             </div>
         );
