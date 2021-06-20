@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = (state) => {
-    return ({current_user: state.signInR.current_user})
+    return ({currentUser: state.signInR.currentUser})
 }
 
 
