@@ -36,6 +36,9 @@ function App(props) {
       <Route exact path="/register" component={RegistrationForm}>
       {isLoggedIn ? <Redirect to="/" /> : <RegistrationForm />}
       </Route>
+      <Route exact path ={`/users/${localStorage.user_id}/favorites`}>
+      {isLoggedIn ? <Favorites/> : <SignInForm/>}
+      </Route>
 
     </div>
     </Router>
