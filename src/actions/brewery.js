@@ -1,4 +1,4 @@
-
+// Initially used upon app loading to have all breweries in DB loaded to store
 export const getBreweries = () => {
     return (dispatch) => {
         fetch("http://localhost:8080/api/v1/breweries")
@@ -12,7 +12,7 @@ export const getBreweries = () => {
         })
     }
 }
-
+//Dispatches searched breweries to breweries reducer
 export const getSearchedBreweries = (searchedBreweries) => {
     return(dispatch) => {
             dispatch({
@@ -20,9 +20,5 @@ export const getSearchedBreweries = (searchedBreweries) => {
                 payload: searchedBreweries
             })}
         }
-    //     (searchedBreweries => {dispatch({
-    //     type: "GET_SEARCHED_BREWERIES",
-    //     payload: searchedBreweries
-    // })}
-    //     )}
+
 

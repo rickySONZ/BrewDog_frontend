@@ -1,6 +1,6 @@
 import './App.css';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
 import { getBreweries } from './actions/brewery';
@@ -12,16 +12,17 @@ import Favorites from './components/Favorites';
 
 
 
-function App(props) {
+function App(props, state) {
 
-  const isLoggedIn = props.currentUser && props.currentUser.logged_in
+  let isLoggedIn = localStorage.user_id || props.currentUser
 
   useEffect(() => {
-    props.getBreweries()
     props.getProfileFetch()
+    props.getBreweries()
+    
     
     return () => {
-
+      
     };
   }, []);
 
@@ -29,6 +30,10 @@ function App(props) {
     <Router>
     {isLoggedIn ? <Navbar/> : null}
     <div className="App">
+    <Switch>
+    <Route exact path ={`/users/${props.currentUser}/favorites`}>
+      {isLoggedIn ? <Favorites/> : <Redirect to="/login"/>}
+      </Route>
     <Route exact path="/" component = {Home}>
     {isLoggedIn ? <Home/> : <SignInForm />}
     </Route>
@@ -38,10 +43,7 @@ function App(props) {
       <Route exact path="/register" component={RegistrationForm}>
       {isLoggedIn ? <Redirect to="/" /> : <RegistrationForm />}
       </Route>
-      <Route exact path ={`/users/${localStorage.user_id}/favorites`}>
-      {isLoggedIn ? <Favorites/> : <SignInForm/>}
-      </Route>
-
+</Switch>
     </div>
     </Router>
   );

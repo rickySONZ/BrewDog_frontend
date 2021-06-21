@@ -1,3 +1,5 @@
+
+
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -26,7 +28,7 @@ const loginUser = userObj => ({
     type: 'LOGIN_USER',
     payload: userObj
 })
-
+// Used to fetch user upon login
 export const userLoginFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/login", {
