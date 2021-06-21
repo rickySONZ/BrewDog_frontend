@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getFavorites } from '../actions/favorite';
 
-const Favorites = () => {
+
+const Favorites = (props) => {
+
+    useEffect(() => {
+        props.getFavorites()
+        return () => {
+            
+        };
+    }, []);
+
     return (
         <div>
             
@@ -8,4 +19,15 @@ const Favorites = () => {
     );
 }
 
-export default Favorites;
+const mapStateToProps = state => {
+    return({
+        currentUser: state.signInR.currentUser,
+        favorites: state.favoritesR.favorites
+    })
+}
+
+const mapDispatchToProps = dispatch => ({
+    getFavorites: () => dispatch(getFavorites())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

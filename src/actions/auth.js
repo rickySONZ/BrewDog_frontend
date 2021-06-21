@@ -1,3 +1,5 @@
+import { getFavorites } from "./favorite"
+
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -44,6 +46,7 @@ export const userLoginFetch = user => {
                     console.log(data.errors)
                 } else {
                     dispatch(loginUser(data.user))
+                    getFavorites(data.user.id)
                     localStorage.setItem("token", data.token)
                     localStorage.setItem("user_id", data.user.id)
                     
@@ -72,7 +75,6 @@ export const getProfileFetch = () => {
                     localStorage.removeItem("user_id")
                 } else {
                     dispatch(loginUser(data.user))
-
                     localStorage.setItem("user_id", data.user.id)
                 }
             })

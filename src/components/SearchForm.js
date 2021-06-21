@@ -4,8 +4,6 @@ import { getSearchedBreweries } from '../actions/brewery';
 
 
 function SearchForm(props, state) {
-    
-    const initialState = ''
 
     const [searchCity, setSearchCity] = useState('')
     const [searchState, setSearchState] = useState('')

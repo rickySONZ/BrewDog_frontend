@@ -1,12 +1,12 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getProfileFetch, logoutUser } from '../actions/auth';
 
 
 function Navbar(props) {
 
-    const history = useHistory()
+
     useEffect(() => {
        
         return () => {
@@ -19,17 +19,16 @@ function Navbar(props) {
         await props.logoutUser();
         localStorage.removeItem("token")
         localStorage.removeItem("user_id")
-        history.replace('/login')
-        window.location.reload()
+        
         
     }
 
    
     return (
         <div>    
-            <NavLink to="/">Home</NavLink>
-            <NavLink to ={`/users/${props.currentUser.id}/favorites`}>Favorites</NavLink>
-            <NavLink to="/login" onClick={handleClick} >Logout</NavLink>    
+            <NavLink className="navlink" to="/">Home</NavLink>
+            <NavLink className="navlink" to ={`/users/${props.currentUser.id}/favorites`}>Favorites</NavLink>
+            <NavLink className="navlink" to="/login" onClick={handleClick} >Logout</NavLink>    
         </div>
     );
     

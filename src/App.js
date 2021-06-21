@@ -1,6 +1,6 @@
 import './App.css';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Redirect, Route, Switch, useHistory } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
 import { getBreweries } from './actions/brewery';
@@ -15,17 +15,12 @@ import Favorites from './components/Favorites';
 
 function App(props) {
 
-  const history = useHistory()
-
   let isLoggedIn = props.currentUser && props.currentUser.id
 
   useEffect(() => {
     props.getProfileFetch()
     props.getBreweries()
-    
-    
-    return () => {
-      
+    return () => {    
     };
   }, []);
 

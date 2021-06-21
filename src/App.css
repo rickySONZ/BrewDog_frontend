@@ -42,7 +42,7 @@ a {
   color: black;
 }
 
-nav li {
+a.navlink {
   list-style-type: none;
   display: inline;
   padding: 3%;
@@ -62,3 +62,6 @@ nav button{
   padding: 1%;
 }
 
+form.search-form input {
+  margin: 3%;
+}
