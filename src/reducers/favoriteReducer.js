@@ -1,5 +1,5 @@
 const initialState = {
-    breweries = [],
+    breweries: [],
     loading: false,
     searchedBreweries: [],
     favorites: []
@@ -13,5 +13,9 @@ const favoriteReducer = (state = initialState, action) => {
                 favorites: [...action.payload],
                 loading: false
             }
+            default:
+                return state
     }
 }
+
+export default favoriteReducer
