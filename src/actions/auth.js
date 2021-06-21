@@ -1,5 +1,3 @@
-
-
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -42,12 +40,13 @@ export const userLoginFetch = user => {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                if (data.status != 200){
+                if (data.status !== 200){
                     console.log(data.errors)
                 } else {
                     dispatch(loginUser(data.user))
                     localStorage.setItem("token", data.token)
                     localStorage.setItem("user_id", data.user.id)
+                    
                 }
             
         })

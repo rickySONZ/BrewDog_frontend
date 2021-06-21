@@ -8,12 +8,13 @@ import SearchForm from './SearchForm';
 
 class Home extends Component {
 
+    
+
     componentWillMount = () => {
         this.props.getProfileFetch()
     }
 
     render() {
-       
         return (
             <div>
                 <SearchForm />
