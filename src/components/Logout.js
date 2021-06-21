@@ -11,6 +11,7 @@ class Logout extends Component {
      handleClick = event => {
                 event.preventDefault()
                 localStorage.removeItem("token")
+                localStorage.removeItem("user_id")
                 this.props.logoutUser()
             }
 

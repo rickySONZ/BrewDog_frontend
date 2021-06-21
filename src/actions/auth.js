@@ -13,8 +13,10 @@ export const userPostFetch = user => {
             if (data.message){
                 console.log(data.errors)
             } else {
-                localStorage.setItem("token", data.token)
+                console.log(data)
                 dispatch(loginUser(data.user))
+                localStorage.setItem("token", data.token)
+                localStorage.setItem("user_id", data.user.id)
             }
         })
     }
@@ -38,11 +40,12 @@ export const userLoginFetch = user => {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                if (data.message){
+                if (data.errors){
                     console.log(data.errors)
                 } else {
-                    localStorage.setItem("token", data.token)
                     dispatch(loginUser(data.user))
+                    localStorage.setItem("token", data.token)
+                    localStorage.setItem("user_id", data.user.id)
                 }
             
         })
@@ -63,10 +66,13 @@ export const getProfileFetch = () => {
             })
             .then(resp => resp.json())
             .then(data => {
-                if (data.message){
+                if (data.error){
                     localStorage.removeItem("token")
+                    localStorage.removeItem("user_id")
                 } else {
                     dispatch(loginUser(data.user))
+
+                    localStorage.setItem("user_id", data.user.id)
                 }
             })
         }
