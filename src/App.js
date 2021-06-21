@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { getProfileFetch } from './actions/auth'
 import Home from './components/Home';
 import Navbar from './components/Navbar'
+import Favorites from './components/Favorites';
+
 
 
 function App(props) {
