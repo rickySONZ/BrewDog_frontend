@@ -42,7 +42,7 @@ export const userLoginFetch = user => {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                if (data.errors){
+                if (data.status != 200){
                     console.log(data.errors)
                 } else {
                     dispatch(loginUser(data.user))
