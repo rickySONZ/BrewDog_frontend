@@ -9,9 +9,7 @@ import { getProfileFetch } from './actions/auth'
 import Home from './components/Home';
 import Navbar from './components/Navbar'
 import Favorites from './components/Favorites';
-
-
-
+import { getFavorites } from './actions/favorite';
 
 function App(props) {
 
@@ -20,6 +18,7 @@ function App(props) {
   useEffect(() => {
     props.getProfileFetch()
     props.getBreweries()
+    props.getFavorites()
     return () => {    
     };
   }, []);
@@ -56,7 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   getBreweries: () => dispatch(getBreweries()),
-  getProfileFetch: () => dispatch(getProfileFetch())
+  getProfileFetch: () => dispatch(getProfileFetch()),
+  getFavorites: () => dispatch(getFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

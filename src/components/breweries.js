@@ -19,6 +19,7 @@ const Breweries = (props) => {
                     longitude={b.longitude}
                     phone={b.phone}
                     postalcode={b.postalcode}
+                    checked = {props.favorites.find()}
                     
 
                 />)} 
@@ -30,7 +31,8 @@ const Breweries = (props) => {
 const mapStateToProps = state => {
     return ({breweries: state.breweriesR.breweries,
     currentUser: state.signInR.currentUser,
-searchedBreweries: state.breweriesR.searchedBreweries})
+searchedBreweries: state.breweriesR.searchedBreweries,
+favorites: state.favoritesR.favorites})
 }
 
 export default connect(mapStateToProps)(Breweries);

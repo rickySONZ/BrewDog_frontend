@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
+import { getFavorites } from '../actions/favorite';
 import Breweries from './Breweries';
 import SearchForm from './SearchForm';
-
 
 
 class Home extends Component {

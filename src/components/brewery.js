@@ -8,9 +8,15 @@ const Brewery = (props) => {
             <li><b>{props.name}</b><br/>
             {props.address}<br/>
             {`${props.city} - ${props.state}`}
-            </li><input type="checkbox"/>
+            </li><input type="checkbox"
+                defaultChecked={
+                    props.checked
+                }
+            />
         </div>
     );
 }
+
+
 
 export default Brewery;

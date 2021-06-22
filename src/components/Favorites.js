@@ -7,17 +7,9 @@ import Favorite from './Favorite';
 
 const Favorites = (props) => {
 
-    const [checkedItems, setCheckedItems] = useState({}); //plain object as state
-
-    const handleSingleCheck = e => {
-        setCheckedItems({...checkedItems, [e.target.name]: e.target.checked})
-    }
     
     useEffect(() => {
         props.getFavorites()
-        setCheckedItems(props.favorites.map(f =>
-            
-            f.id))
         return () => {
             
         };
@@ -29,7 +21,7 @@ const Favorites = (props) => {
             {props.favorites.map(f => <div className={`favorite-brewery-${f.id}`}>
             <Favorite 
                 name={f.brewery.name}
-                key={f.brewery.id}
+                id={f.id}
                 address={f.brewery.address}
                 city = {`${f.brewery.city}, ${f.brewery.state}`}
                 checked = {true}
