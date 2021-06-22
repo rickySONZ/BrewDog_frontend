@@ -8,7 +8,7 @@ const Brewery = (props) => {
             <li><b>{props.name}</b><br/>
             {props.address}<br/>
             {`${props.city} - ${props.state}`}
-            </li>
+            </li><input type="checkbox"/>
         </div>
     );
 }

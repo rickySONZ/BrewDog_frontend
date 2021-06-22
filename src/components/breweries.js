@@ -21,7 +21,7 @@ const Breweries = (props) => {
                     postalcode={b.postalcode}
                     
 
-                />)}
+                />)} 
             </ul>
         </div>
     );
