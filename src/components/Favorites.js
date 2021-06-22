@@ -15,10 +15,15 @@ const Favorites = (props) => {
     }, []);
 
     return (
-        <div className = "favorites-container">
+        <div className = "breweries-container">
+        <ul>
             {props.favorites.map(f => <Favorite 
-                name={props.breweries.find(f.brewery_id).name} //Pass it back from the back end so that we dont have O(n^ 2)
+                name={f.brewery.name}
+                key={f.brewery.id}
+                address={f.brewery.address}
+                city = {`${f.brewery.city}, ${f.brewery.state}`}
             />)}
+            </ul>
         </div>
     );
 }

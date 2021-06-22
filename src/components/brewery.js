@@ -5,7 +5,10 @@ const Brewery = (props) => {
     return (
         <div>
 
-            <li>{props.name}<br></br>{props.address}<br></br>{`${props.city} - ${props.state}`}</li>
+            <li><b>{props.name}</b><br/>
+            {props.address}<br/>
+            {`${props.city} - ${props.state}`}
+            </li>
         </div>
     );
 }
