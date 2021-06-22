@@ -1,6 +1,7 @@
 import { userLoginFetch } from '../actions/auth'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SignInForm extends Component {
 
@@ -23,7 +24,8 @@ class SignInForm extends Component {
                     <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
                     <input type= "submit" value = "Login"></input>
                 </form>
-                <a href="/register">Don't Have an Account?<br></br>Click Here to Sign Up</a>
+                <Link to="/register">Register</Link>
+
             </div>
         );
     }

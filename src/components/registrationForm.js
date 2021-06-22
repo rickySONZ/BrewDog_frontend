@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { userPostFetch } from '../actions/auth';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 class RegistrationForm extends Component {
 
@@ -22,10 +24,9 @@ class RegistrationForm extends Component {
             <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
             <input type = "text" placeholder = "Email" name="email" value={this.email} onChange={this.handleChange}/><br></br>
             <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
-            {/* <input type = "password" placeholder = "Confirm Password" name="password_confirmation" value={this.passwordConfirmation} onChange={this.handleChange}/><br></br> */}
             <input type = "submit" value = "Sign Up"/>
             </form>
-            <a href="/login">Already Have an Account?<br></br>Click Here to Sign Up</a>
+            <Link to="/login">Already Have an Account?<br></br>Click Here to Sign Up</Link>
         </div>
         );
     }

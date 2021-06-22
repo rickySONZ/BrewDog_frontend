@@ -14,13 +14,10 @@ function Navbar(props) {
         };
     }, []);
 
-    async function handleClick(){
-        
+    async function handleClick(){  
         await props.logoutUser();
         localStorage.removeItem("token")
-        localStorage.removeItem("user_id")
-        
-        
+        localStorage.removeItem("user_id")   
     }
 
    

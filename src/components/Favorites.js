@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getFavorites } from '../actions/favorite';
+import Favorite from './Favorite';
+
 
 
 const Favorites = (props) => {
@@ -13,8 +15,10 @@ const Favorites = (props) => {
     }, []);
 
     return (
-        <div>
-            
+        <div className = "favorites-container">
+            {props.favorites.map(f => <Favorite 
+                name={props.breweries.find(f.brewery_id).name} //Pass it back from the back end so that we dont have O(n^ 2)
+            />)}
         </div>
     );
 }
@@ -22,7 +26,8 @@ const Favorites = (props) => {
 const mapStateToProps = state => {
     return({
         currentUser: state.signInR.currentUser,
-        favorites: state.favoritesR.favorites
+        favorites: state.favoritesR.favorites,
+        breweries: state.breweriesR.breweries
     })
 }
 
