@@ -26,12 +26,7 @@ const Favorites = (props) => {
                 city = {`${f.brewery.city}, ${f.brewery.state}`}
                 checked = {true}
             /> 
-            {/* <input input type= "checkbox"
-            name={f.name}
-            key={f.brewery.id}
-            onChange = {handleSingleCheck}
-            checked = {checkedItems[f.id]}
-            /> */}
+            
             </div> )}
             </ul>
         </div>

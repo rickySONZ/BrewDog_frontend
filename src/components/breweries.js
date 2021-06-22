@@ -19,7 +19,7 @@ const Breweries = (props) => {
                     longitude={b.longitude}
                     phone={b.phone}
                     postalcode={b.postalcode}
-                    checked = {props.favorites.find()}
+                    checked = {props.favorites.find(f => f.brewery.id === b.id) ? true : false}
                     
 
                 />)} 
