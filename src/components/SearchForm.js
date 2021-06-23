@@ -7,7 +7,7 @@ function SearchForm(props, state) {
 
     const [searchCity, setSearchCity] = useState('')
     const [searchState, setSearchState] = useState('')
-    const [searchedBreweries, setSearchedBreweries] = useState('');
+    const [searchedBreweries, setSearchedBreweries] = useState([]);
 
     function handleSubmit(event){
         event.preventDefault()

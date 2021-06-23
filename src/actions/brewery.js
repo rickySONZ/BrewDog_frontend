@@ -21,4 +21,11 @@ export const getSearchedBreweries = (searchedBreweries) => {
             })}
         }
 
+export const clearSearchedBreweries = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "CLEAR_SEARCHED_BREWERIES"
+        })
+    }
+}
 

@@ -19,6 +19,12 @@ const breweryReducer = (state = initialState, action) => {
                 searchedBreweries: [...action.payload],
                 loading: false
             }
+        case "CLEAR_SEARCHED_BREWERIES":
+            return {
+                ...state,
+                searchedBreweries: {},
+                loading: false
+            }
 
             default:
                 return state

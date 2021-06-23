@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getFavorites } from '../actions/favorite';
 import Brewery from './Brewery';
 
 
 
+
 const Breweries = (props) => {
+    
     return (
         <div className="breweries-container">
             <ul>
-                {props.searchedBreweries.map(b => <Brewery
+                { 
+                    props.searchedBreweries.map(b => <Brewery
                     name={b.name}
                     key={b.id}
                     address={b.address}
@@ -19,10 +23,10 @@ const Breweries = (props) => {
                     longitude={b.longitude}
                     phone={b.phone}
                     postalcode={b.postalcode}
-                    checked = {props.favorites.find(f => f.brewery.id === b.id) ? true : false}
-                    
+                    checked = {props.favorites.find(f => f.brewery.id === b.id) ? true : false} 
 
-                />)} 
+                    />)}
+                    
             </ul>
         </div>
     );

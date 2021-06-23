@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getProfileFetch, logoutUser } from '../actions/auth';
+import { clearSearchedBreweries } from '../actions/brewery';
+
 
 
 function Navbar(props) {
@@ -10,12 +12,12 @@ function Navbar(props) {
     useEffect(() => {
        
         return () => {
-            handleClick()
+            
         };
     }, []);
 
-    async function handleClick(){  
-        await props.logoutUser();
+  function handleClick(){  
+        props.logoutUser();
         localStorage.removeItem("token")
         localStorage.removeItem("user_id")   
     }

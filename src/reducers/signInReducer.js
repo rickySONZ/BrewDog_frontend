@@ -7,7 +7,7 @@ const signInReducer = (state= initialState, action) => {
             return {...state, currentUser: action.payload}
 
         case 'LOGOUT_USER':
-            return {...state, currentUser: {}, favorites: {}}
+            return {...state, searchedBreweries: {}, currentUser: {}, favorites: {}}
             default:
                 return state;
     }
