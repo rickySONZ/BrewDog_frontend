@@ -14,7 +14,7 @@ function SearchForm(props, state) {
         console.log(searchCity)
         console.log(searchState)
         let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
-        setSearchedBreweries(filteredBreweries)
+        // setSearchedBreweries(filteredBreweries)
         props.getSearchedBreweries(filteredBreweries)
     }
 

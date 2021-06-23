@@ -14,10 +14,6 @@ class Home extends Component {
         this.props.getFavorites()
     }
 
-    componentWillUnmount = () => {
-       
-    }
-
     render() {
         return (
             <div>
