@@ -13,6 +13,7 @@ class Home extends Component {
 
     componentWillMount = () => {
         this.props.getProfileFetch()
+        this.props.getFavorites()
     }
 
     componentWillUnmount = () => {
@@ -35,7 +36,8 @@ const mapStateToProps = (state) => ({
   const mapDispatchToProps = dispatch => ({
     getProfileFetch: () => dispatch(getProfileFetch()),
       logoutUser: () => dispatch(logoutUser()),
-      clearSearchedBreweries: () => dispatch(clearSearchedBreweries())
+      clearSearchedBreweries: () => dispatch(clearSearchedBreweries()),
+      getFavorites: ()=> dispatch(getFavorites())
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

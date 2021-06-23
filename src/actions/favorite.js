@@ -36,3 +36,11 @@ export const deleteFavorite = (id) => {
 
     }
 }
+
+export const clearFavoritesOnLogout = () => {
+    return(dispatch) => {
+        dispatch({
+            type: "CLEAR_FAVORITES"
+        })
+    }
+}

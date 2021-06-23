@@ -18,6 +18,12 @@ const favoriteReducer = (state = initialState, action) => {
                 ...state,
                 favorites: state.favorites.filter(f => f.id !== action.payload.id)
             }
+
+        case "CLEAR_FAVORITES":
+            return {
+                ...state,
+                favorites: {}
+            }
             default:
                 return state
     }
