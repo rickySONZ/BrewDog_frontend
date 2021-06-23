@@ -15,6 +15,7 @@ const Breweries = (props) => {
                     props.searchedBreweries.map(b =>  <Brewery
                     name={b.name}
                     key={b.id}
+                    id={b.id}
                     address={b.address}
                     city={b.city}
                     state={b.state}
@@ -34,7 +35,7 @@ const Breweries = (props) => {
     return (
         <div className="breweries-container">
             <ul>
-                
+                <h2>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h2>
             </ul>
         </div>
     )

@@ -18,7 +18,6 @@ function App(props) {
   useEffect(() => {
     props.getProfileFetch()
     props.getBreweries()
-    props.getFavorites()
     return () => {    
     };
   }, []);

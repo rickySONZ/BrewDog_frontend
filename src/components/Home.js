@@ -12,7 +12,6 @@ class Home extends Component {
     
 
     componentWillMount = () => {
-        this.props.getProfileFetch()
         this.props.getFavorites()
     }
 
