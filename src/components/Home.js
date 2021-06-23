@@ -9,14 +9,12 @@ import SearchForm from './SearchForm';
 
 class Home extends Component {
 
-    
-
     componentWillMount = () => {
         this.props.getFavorites()
     }
 
     componentWillUnmount = () => {
-        this.props.clearSearchedBreweries()
+       
     }
 
     render() {

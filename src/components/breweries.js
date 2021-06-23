@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 import { getFavorites } from '../actions/favorite';
 import Brewery from './Brewery';
 
+const Breweries = (props) => {     
 
+    useEffect(() => {
+        return () => {
+            props.getFavorites()
+        };
+    }, []);
 
+    if(props.searchedBreweries.length > 0 && props.favorites){
 
-const Breweries = (props) => {
-    if(props.searchedBreweries.length > 0){
     return (
         <div className="breweries-container">
             <ul>
                 { 
-                    props.searchedBreweries.map(b =>  <Brewery
+                    props.searchedBreweries.map(b => { 
+                        
+                        return <Brewery
                     name={b.name}
                     key={b.id}
                     id={b.id}
@@ -24,9 +31,9 @@ const Breweries = (props) => {
                     longitude={b.longitude}
                     phone={b.phone}
                     postalcode={b.postalcode}
-                    checked = {props.favorites.find(f => f.brewery.id === b.id) ? true : false} 
+                    checked = {props.favorites.find(f => f.brewery_id === b.id) ? true : false} 
 
-                    />)}
+                    />})}
                     
             </ul>
         </div>
@@ -48,4 +55,8 @@ searchedBreweries: state.breweriesR.searchedBreweries,
 favorites: state.favoritesR.favorites})
 }
 
-export default connect(mapStateToProps)(Breweries);
+const mapDispatchToProps = dispatch => ({
+    getFavorites: () => dispatch(getFavorites())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Breweries);

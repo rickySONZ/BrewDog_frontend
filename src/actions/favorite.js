@@ -45,7 +45,7 @@ export const clearFavoritesOnLogout = () => {
     }
 }
 
-export const addFavorite = favorite => {
+export const addFavorite = (favorite) => {
     return(dispatch) => {
     fetch(`http://localhost:8080/api/v1/users/${localStorage.user_id}/favorites`, {
         method: 'POST',

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
 import Favorite from './Favorite';
 
@@ -7,9 +8,9 @@ import Favorite from './Favorite';
 
 const Favorites = (props) => {
 
-    
     useEffect(() => {
         props.getFavorites()
+        props.clearSearchedBreweries()
         return () => {
             
         };
@@ -42,7 +43,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    getFavorites: () => dispatch(getFavorites())
+    getFavorites: () => dispatch(getFavorites()),
+    clearSearchedBreweries: () => dispatch(clearSearchedBreweries())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

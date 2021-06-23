@@ -1,23 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteFavorite } from '../actions/favorite';
+import { addFavorite, deleteFavorite, getFavorites } from '../actions/favorite';
+
 
 const Brewery = (props) => {
     const handleCheck = (event) => {
         if (event.target.checked === true){
             
+            props.addFavorite(props.id)
             //dispatch an action to add this to my favorites state
         } else if (event.target.checked === false){
             
-            let favId = props.favorites.find(f => f.brewery.id === props.id).id
-            debugger
+            let favId = props.favorites.find(f => f.brewery_id === props.id).id
+           
             props.deleteFavorite(favId)
+            // props.getFavorites()
         }
     }
     return (
         <div>
 
-            <li><b>{props.name}</b><br/>
+            <li key ={props.key}><b>{props.name}</b><br/>
             {props.address}<br/>
             {`${props.city} - ${props.state}`}
             </li><input type="checkbox"
@@ -30,11 +33,14 @@ const Brewery = (props) => {
     );
 }
 const mapStateToProps = state =>({
-    favorites: state.favoritesR.favorites
+    favorites: state.favoritesR.favorites,
+    currentUser: state.signInR.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
-    deleteFavorite: (favoriteInfo) => dispatch(deleteFavorite(favoriteInfo))
+    deleteFavorite: (favoriteInfo) => dispatch(deleteFavorite(favoriteInfo)),
+    addFavorite: (favoriteInfo) => dispatch(addFavorite(favoriteInfo)),
+    getFavorites: () => dispatch(getFavorites())
 })
 
 
