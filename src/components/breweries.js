@@ -7,12 +7,12 @@ import Brewery from './Brewery';
 
 
 const Breweries = (props) => {
-    
+    if(props.searchedBreweries.length > 0){
     return (
         <div className="breweries-container">
             <ul>
                 { 
-                    props.searchedBreweries.map(b => <Brewery
+                    props.searchedBreweries.map(b =>  <Brewery
                     name={b.name}
                     key={b.id}
                     address={b.address}
@@ -30,7 +30,15 @@ const Breweries = (props) => {
             </ul>
         </div>
     );
-}
+} else {
+    return (
+        <div className="breweries-container">
+            <ul>
+                
+            </ul>
+        </div>
+    )
+}}
 
 const mapStateToProps = state => {
     return ({breweries: state.breweriesR.breweries,
