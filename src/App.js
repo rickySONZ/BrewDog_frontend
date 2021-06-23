@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import Favorites from './components/Favorites';
 import { getFavorites } from './actions/favorite';
 
+
 function App(props) {
 
   let isLoggedIn = props.currentUser && props.currentUser.id

@@ -5,6 +5,7 @@ import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
 import Breweries from './Breweries';
 import SearchForm from './SearchForm';
+import Map from './Map'
 
 
 class Home extends Component {
@@ -22,6 +23,7 @@ class Home extends Component {
             <div>
                 <SearchForm />
                 <Breweries />
+                <Map/>
             </div>
         );
     }
