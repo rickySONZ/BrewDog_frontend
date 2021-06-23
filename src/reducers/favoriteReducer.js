@@ -28,7 +28,7 @@ const favoriteReducer = (state = initialState, action) => {
             case "ADD_FAVORITE":
                 return {
                     ...state,
-                    favorites: [...favorites, action.payload]
+                    favorites: [...state.favorites, action.payload]
                 }
             default:
                 return state

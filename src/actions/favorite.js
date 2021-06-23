@@ -44,3 +44,26 @@ export const clearFavoritesOnLogout = () => {
         })
     }
 }
+
+export const addFavorite = favorite => {
+    return(dispatch) => {
+    fetch(`http://localhost:8080/api/v1/users/${localStorage.user_id}/favorites`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify({favorite})
+
+    })
+    .then(resp => resp.json())
+    .then(favorite => {
+        console.log(favorite)
+        dispatch({
+            type: "ADD_FAVORITE",
+            payload: favorite
+        })
+    })
+    
+} 
+}
