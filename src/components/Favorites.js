@@ -10,7 +10,7 @@ const Favorites = (props) => {
 
     useEffect(() => {
         props.getFavorites()
-        props.clearSearchedBreweries()
+        
         return () => {
             
         };
@@ -19,16 +19,28 @@ const Favorites = (props) => {
     return (
         <div className = "breweries-container">
         <ul>
-            {props.favorites.map(f => <div className={`favorite-brewery-${f.id}`}>
-            <Favorite 
+            {props.favorites.map(f => {
+                if (f.brewery){
+                return <Favorite 
+                key = {f.id}
                 name={f.brewery.name}
                 id={f.id}
                 address={f.brewery.address}
                 city = {`${f.brewery.city}, ${f.brewery.state}`}
                 checked = {true}
-            /> 
+            /> } else {
+                let g = props.breweries.find(b => b.id === f.brewery_id)
+                return <Favorite 
+                key = {f.id}
+                name={g.name}
+                id={f.id}
+                address={g.address}
+                city = {`${g.city}, ${g.state}`}
+                checked = {true}
+            />
+            }
             
-            </div> )}
+             })}
             </ul>
         </div>
     );

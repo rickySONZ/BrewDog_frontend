@@ -2,28 +2,21 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getProfileFetch, logoutUser } from '../actions/auth';
+import { clearSearchedBreweries } from '../actions/brewery';
 import { clearFavoritesOnLogout } from '../actions/favorite';
 
 
 
 function Navbar(props) {
 
-
-    useEffect(() => {
-       
-        return () => {
-            
-        };
-    }, []);
-
   function handleClick(){  
         props.logoutUser();
         props.clearFavoritesOnLogout()
+        props.clearSearchedBreweries()
         localStorage.removeItem("token")
         localStorage.removeItem("user_id")   
     }
 
-   
     return (
         <div>    
             <NavLink className="navlink" to="/">Home</NavLink>
@@ -40,7 +33,8 @@ const mapStateToProps = (state) => ({
   const mapDispatchToProps = dispatch => ({
     getProfileFetch: () => dispatch(getProfileFetch()),
       logoutUser: () => dispatch(logoutUser()),
-      clearFavoritesOnLogout: () => dispatch(clearFavoritesOnLogout())
+      clearFavoritesOnLogout: () => dispatch(clearFavoritesOnLogout()),
+      clearSearchedBreweries: () => dispatch(clearSearchedBreweries())
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

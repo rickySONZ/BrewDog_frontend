@@ -9,7 +9,8 @@ const Brewery = (props) => {
             
             props.addFavorite(props.id)
             //dispatch an action to add this to my favorites state
-        } else if (event.target.checked === false){
+        } 
+        else if (event.target.checked === false){
             
             let favId = props.favorites.find(f => f.brewery_id === props.id).id
            
