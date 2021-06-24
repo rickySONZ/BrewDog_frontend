@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { logoutUser, getProfileFetch } from '../actions/auth';
 import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';

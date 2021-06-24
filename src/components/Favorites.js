@@ -7,6 +7,7 @@ import Favorite from './Favorite';
 const Favorites = (props) => {
 
     const dispatch = useDispatch()
+    
     useEffect(() => {
         dispatch(getFavorites())
         
