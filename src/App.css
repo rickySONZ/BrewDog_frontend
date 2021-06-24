@@ -46,6 +46,7 @@ a.navlink {
   list-style-type: none;
   display: inline;
   padding: 3%;
+  
 }
 nav button{
   background: none;
@@ -66,3 +67,7 @@ form.search-form input {
   margin: 3%;
 }
 
+#mapid {
+  height: 40%;
+  width: 40%;
+}

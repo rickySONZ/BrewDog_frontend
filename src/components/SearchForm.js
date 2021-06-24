@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { getSearchedBreweries } from '../actions/brewery';
+import { checkCap, getSearchedBreweries } from '../actions/brewery';
 
 
-function SearchForm(props, state) {
+
+function SearchForm(props) {
 
     const [searchCity, setSearchCity] = useState('')
     const [searchState, setSearchState] = useState('')
@@ -13,9 +14,10 @@ function SearchForm(props, state) {
         event.preventDefault()
         console.log(searchCity)
         console.log(searchState)
-        let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
+        let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
         // setSearchedBreweries(filteredBreweries)
         props.getSearchedBreweries(filteredBreweries)
+        props.checkCap()
     }
 
 
@@ -37,7 +39,8 @@ searchedBreweries: state.breweriesR.searchedBreweries})
 }
 
 const mapDispatchToProps = dispatch => ({
-    getSearchedBreweries: searchedBreweries => dispatch(getSearchedBreweries(searchedBreweries))
+    getSearchedBreweries: searchedBreweries => dispatch(getSearchedBreweries(searchedBreweries)),
+    checkCap: () => dispatch(checkCap())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

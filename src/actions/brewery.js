@@ -29,3 +29,11 @@ export const clearSearchedBreweries = () => {
     }
 }
 
+export const checkCap = () => {
+    return(dispatch) => {
+        fetch("http://localhost:8080/api/v1/capcheck")
+        .then(resp => resp.json())
+        .then(cap => console.log(cap))
+        .catch(error => console.log(error))
+    }
+}
