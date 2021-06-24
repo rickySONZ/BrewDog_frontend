@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { deleteFavorite, getFavorites } from '../actions/favorite';
+
 
 
 const Favorite = (props) => {
 
+    const dispatch = useDispatch()
     const [checkedState, setCheckedState] = useState(props.checked);
     let fav_id = props.id
     return (
@@ -17,16 +19,12 @@ const Favorite = (props) => {
             key = {fav_id}
         defaultChecked={checkedState}
         // onChange={() => setCheckedState(!checkedState)}
-        onClick={() => props.deleteFavorite(fav_id)}
+        onClick={() => dispatch(deleteFavorite(fav_id))}
         
       />
         </>
     );
 }
 
-const mapDispatchToProps = dispatch => ({
-        deleteFavorite: (favoriteInfo) => dispatch(deleteFavorite(favoriteInfo))
-})
 
-
- export default connect(null, mapDispatchToProps)(Favorite);
+ export default connect(null, null)(Favorite);

@@ -18,7 +18,8 @@ function Navbar(props) {
     }
 
     return (
-        <div>    
+        <div>
+        {/* <img src={process.env.PUBLIC_URL + } />     */}
             <NavLink className="navlink" to="/">Home</NavLink>
             <NavLink className="navlink" to ={`/users/${props.currentUser.id}/favorites`}>Favorites</NavLink>
             <NavLink className="navlink" to="/login" onClick={handleClick} >Logout</NavLink>    
