@@ -66,12 +66,15 @@ form.search-form input {
  grid-row-start: 3;
 grid-column-start: 1;
 justify-self: left;
+width: 100%
 }
 
 #mapid {
   grid-row-start: 3;
   grid-column: 2 / -2;
   justify-self: right;
+  position: sticky;
+  top: 0;
 }
 
 .grid-wrapper{
