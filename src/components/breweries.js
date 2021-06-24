@@ -49,7 +49,7 @@ const Breweries = () => {
     return (
         <div className="breweries-container">
             <ul>
-                <h2>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h2>
+                <h5>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h5>
             </ul>
         </div>
     )

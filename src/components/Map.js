@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
-  map.setView(center, zoom);
+  map.setView(center, zoom = 12);
   return null;
 }
 
@@ -37,9 +37,10 @@ const Map = () => {
         </div>) 
         } else {
             return (
+              <div id="mapid">
              <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
                       height:"500px",
-                      width: "500px",
+                      width: "700px",
                       float: "right"
                   }}>
                 <TileLayer
@@ -48,7 +49,7 @@ const Map = () => {
       />
             
             </MapContainer>
-            
+            </div>
                    )}};
 
 

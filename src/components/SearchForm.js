@@ -8,7 +8,7 @@ function SearchForm(props) {
 
     const [searchCity, setSearchCity] = useState('')
     const [searchState, setSearchState] = useState('')
-    
+
     const dispatch = useDispatch()
 
     function handleSubmit(event){
@@ -19,13 +19,13 @@ function SearchForm(props) {
 
 
     return (
-        <div>
+        <>
             <form className="search-form" onSubmit={handleSubmit}>
                 <input type="text" value={searchCity} placeholder="Search City" onChange={e => setSearchCity(e.target.value)} />
                 <input type="text" value={searchState} placeholder="Search State" onChange={e => setSearchState(e.target.value)}/>
                 <input type="submit" value="Search For Breweries!" />
             </form>
-        </div>
+        </>
     );
 }
 
