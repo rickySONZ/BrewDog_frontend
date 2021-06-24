@@ -21,7 +21,7 @@ function Navbar() {
     }
 
     return (
-        <div>
+        <div className="navbar">
         {/* <img src={process.env.PUBLIC_URL + } />     */}
             <NavLink className="navlink" to="/">Home</NavLink>
             <NavLink className="navlink" to ={`/users/${currentUser.id}/favorites`}>Favorites</NavLink>

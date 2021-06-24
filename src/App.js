@@ -29,8 +29,10 @@ function App() {
 
   return (
     <Router>
-    {isLoggedIn ? <Navbar/> : null}
+    
     <div className="App">
+    <div className="grid-wrapper">
+    {isLoggedIn ? <Navbar/> : null}
     <Switch>
     <Route path ={`/users/:id/favorites`}>
       {isLoggedIn ? <Favorites/> : <Route exact path ="/login"><SignInForm/></Route>}
@@ -44,7 +46,8 @@ function App() {
       <Route path="/">
     {isLoggedIn ? <Home/> : <Redirect to="/login" />}
     </Route>
-</Switch>
+    </Switch>
+    </div>
     </div>
     </Router>
   );
