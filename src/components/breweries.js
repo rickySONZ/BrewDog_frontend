@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { getFavorites } from '../actions/favorite';
-import Brewery from './Brewery';
+import Brewery from './Brewery'; 
 
-const Breweries = (props) => {     
+const Breweries = (props) => {    
+    
+    const dispatch = useDispatch()
 
     useEffect(() => {
         return () => {
-            props.getFavorites()
+            dispatch(getFavorites())
         };
     }, []);
 
@@ -19,7 +21,7 @@ const Breweries = (props) => {
                 { 
                     props.searchedBreweries.map(b => { 
                         
-                        return <Brewery
+                    return <Brewery
                     name={b.name}
                     key={b.id}
                     id={b.id}
@@ -55,8 +57,5 @@ searchedBreweries: state.breweriesR.searchedBreweries,
 favorites: state.favoritesR.favorites})
 }
 
-const mapDispatchToProps = dispatch => ({
-    getFavorites: () => dispatch(getFavorites())
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Breweries);
+export default connect(mapStateToProps, null)(Breweries);

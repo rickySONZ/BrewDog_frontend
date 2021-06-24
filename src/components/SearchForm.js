@@ -8,15 +8,12 @@ function SearchForm(props) {
 
     const [searchCity, setSearchCity] = useState('')
     const [searchState, setSearchState] = useState('')
-    const [searchedBreweries, setSearchedBreweries] = useState([]);
+    
     const dispatch = useDispatch()
 
     function handleSubmit(event){
         event.preventDefault()
-        console.log(searchCity)
-        console.log(searchState)
         let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
-        // setSearchedBreweries(filteredBreweries)
         dispatch(getSearchedBreweries(filteredBreweries))
     }
 
@@ -37,10 +34,5 @@ const mapStateToProps = state => {
     currentUser: state.signInR.currentUser,
 searchedBreweries: state.breweriesR.searchedBreweries})
 }
-
-// const mapDispatchToProps = dispatch => ({
-//     getSearchedBreweries: searchedBreweries => dispatch(getSearchedBreweries(searchedBreweries)),
-
-// })
 
 export default connect(mapStateToProps, null)(SearchForm);

@@ -1,20 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { addFavorite, deleteFavorite, getFavorites } from '../actions/favorite';
 
 
 const Brewery = (props) => {
+
+    const dispatch = useDispatch()
     const handleCheck = (event) => {
         if (event.target.checked === true){
             
-            props.addFavorite(props.id)
+            dispatch(addFavorite(props.id))
             //dispatch an action to add this to my favorites state
         } 
         else if (event.target.checked === false){
             
             let favId = props.favorites.find(f => f.brewery_id === props.id).id
            
-            props.deleteFavorite(favId)
+            dispatch(deleteFavorite(favId))
             // props.getFavorites()
         }
     }
@@ -38,12 +40,6 @@ const mapStateToProps = state =>({
     currentUser: state.signInR.currentUser
 })
 
-const mapDispatchToProps = dispatch => ({
-    deleteFavorite: (favoriteInfo) => dispatch(deleteFavorite(favoriteInfo)),
-    addFavorite: (favoriteInfo) => dispatch(addFavorite(favoriteInfo)),
-    getFavorites: () => dispatch(getFavorites())
-})
 
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Brewery);
+export default connect(mapStateToProps, null)(Brewery);
