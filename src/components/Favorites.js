@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
 import Favorite from './Favorite';
 
-const Favorites = (props) => {
+const Favorites = () => {
 
     const dispatch = useDispatch()
-    
+    const breweries = useSelector(state => state.breweriesR.breweries)
+    const favorites = useSelector(state => state.favoritesR.favorites)
+
     useEffect(() => {
         dispatch(getFavorites())
         
@@ -19,7 +21,7 @@ const Favorites = (props) => {
     return (
         <div className = "breweries-container">
         <ul>
-            {props.favorites.map(f => {
+            {favorites.map(f => {
                 if (f.brewery){
                 return <Favorite 
                 key = {f.id}
@@ -29,7 +31,7 @@ const Favorites = (props) => {
                 city = {`${f.brewery.city}, ${f.brewery.state}`}
                 checked = {true}
             /> } else {
-                let g = props.breweries.find(b => b.id === f.brewery_id)
+                let g = breweries.find(b => b.id === f.brewery_id)
                 return <Favorite 
                 key = {f.id}
                 name={g.name}
@@ -46,14 +48,8 @@ const Favorites = (props) => {
     );
 }
 
-const mapStateToProps = state => {
-    return({
-        currentUser: state.signInR.currentUser,
-        favorites: state.favoritesR.favorites,
-        breweries: state.breweriesR.breweries
-    })
-}
 
 
 
-export default connect(mapStateToProps, null)(Favorites);
+
+export default connect(null, null)(Favorites);

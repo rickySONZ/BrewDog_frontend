@@ -1,5 +1,5 @@
 import './App.css';
-import { connect, useDispatch } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import SignInForm from './components/SignInForm';
 import RegistrationForm from './components/RegistrationForm';
@@ -12,11 +12,13 @@ import Favorites from './components/Favorites';
 import { getFavorites } from './actions/favorite';
 
 
-function App(props) {
+
+function App() {
 
   const dispatch = useDispatch()
+  const currentUser = useSelector(state => state.signInR.currentUser)
 
-  let isLoggedIn = props.currentUser && props.currentUser.id
+  let isLoggedIn = currentUser && currentUser.id
 
   useEffect(() => {
     dispatch(getProfileFetch())
@@ -48,11 +50,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return ({breweries: state.breweriesR.breweries,
-            loading: state.breweriesR.loading,
-            currentUser: state.signInR.currentUser
-        }) 
-}
-
-export default connect(mapStateToProps, null)(App);
+export default connect(null, null)(App);

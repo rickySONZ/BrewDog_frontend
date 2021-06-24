@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { getFavorites } from '../actions/favorite';
 import Brewery from './Brewery'; 
 
-const Breweries = (props) => {    
+
+const Breweries = () => {    
     
     const dispatch = useDispatch()
+    const currentUser = useSelector(state => state.signInR.currentUser)
+    const breweries = useSelector(state => state.breweriesR.breweries)
+    const searchedBreweries = useSelector(state => state.breweriesR.searchedBreweries)
+    const favorites = useSelector(state => state.favoritesR.favorites)
 
     useEffect(() => {
         return () => {
@@ -13,13 +18,13 @@ const Breweries = (props) => {
         };
     }, []);
 
-    if(props.searchedBreweries.length > 0 && props.favorites){
+    if(searchedBreweries.length > 0 && favorites){
 
     return (
         <div className="breweries-container">
             <ul>
                 { 
-                    props.searchedBreweries.map(b => { 
+                    searchedBreweries.map(b => { 
                         
                     return <Brewery
                     name={b.name}
@@ -33,7 +38,7 @@ const Breweries = (props) => {
                     longitude={b.longitude}
                     phone={b.phone}
                     postalcode={b.postalcode}
-                    checked = {props.favorites.find(f => f.brewery_id === b.id) ? true : false} 
+                    checked = {favorites.find(f => f.brewery_id === b.id) ? true : false} 
 
                     />})}
                     
@@ -50,12 +55,5 @@ const Breweries = (props) => {
     )
 }}
 
-const mapStateToProps = state => {
-    return ({breweries: state.breweriesR.breweries,
-    currentUser: state.signInR.currentUser,
-searchedBreweries: state.breweriesR.searchedBreweries,
-favorites: state.favoritesR.favorites})
-}
 
-
-export default connect(mapStateToProps, null)(Breweries);
+export default connect(null, null)(Breweries);

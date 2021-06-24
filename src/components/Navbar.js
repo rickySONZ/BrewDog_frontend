@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getProfileFetch, logoutUser } from '../actions/auth';
 import { clearSearchedBreweries } from '../actions/brewery';
@@ -7,9 +7,10 @@ import { clearFavoritesOnLogout } from '../actions/favorite';
 
 
 
-function Navbar(props) {
+function Navbar() {
 
     const dispatch = useDispatch()
+    const currentUser = useSelector(state => state.signInR.currentUser)
 
   function handleClick(){  
         dispatch(logoutUser());
@@ -23,15 +24,11 @@ function Navbar(props) {
         <div>
         {/* <img src={process.env.PUBLIC_URL + } />     */}
             <NavLink className="navlink" to="/">Home</NavLink>
-            <NavLink className="navlink" to ={`/users/${props.currentUser.id}/favorites`}>Favorites</NavLink>
+            <NavLink className="navlink" to ={`/users/${currentUser.id}/favorites`}>Favorites</NavLink>
             <NavLink className="navlink" to="/login" onClick={handleClick} >Logout</NavLink>    
         </div>
     );
     
 }
-const mapStateToProps = (state) => ({
-    currentUser: state.signInR.currentUser
-  })
 
-
-export default connect(mapStateToProps, null)(Navbar);
+export default connect(null, null)(Navbar);
