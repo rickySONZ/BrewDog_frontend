@@ -165,6 +165,23 @@ padding-right: .5em;
   
 }
 
-#nav-link-logo-title{
+.navlink-logo-text {
+  font-size:x-large;
   padding-bottom: .5em;
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight:bolder;
+}
+li {
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight:bolder;
 }
