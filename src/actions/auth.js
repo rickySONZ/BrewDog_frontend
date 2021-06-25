@@ -12,6 +12,7 @@ export const userPostFetch = user => {
         .then(data => {
             if (data.message){
                 console.log(data.errors)
+                alert(data.error)
             } else {
                 console.log(data)
                 dispatch(loginUser(data.user))
@@ -41,7 +42,8 @@ export const userLoginFetch = user => {
             .then(data => {
                 console.log(data)
                 if (data.status !== 200){
-                    console.log(data.errors)
+                    console.log(data.error)
+                    alert(data.error)
                 } else {
                     dispatch(loginUser(data.user))
                     localStorage.setItem("token", data.token)

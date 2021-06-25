@@ -93,6 +93,7 @@ width: 100%
  grid-column: 1/-1;
  justify-self: center;
  grid-row-start: 1;
+ object-position: center top;
  
 }
 
