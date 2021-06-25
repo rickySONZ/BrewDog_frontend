@@ -50,7 +50,7 @@ const Breweries = () => {
     return (
         <div className="breweries-container">
             <ul>
-                <h5>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h5>
+                <h3>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h3>
             </ul>
         </div>
     )

@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   
-  
 }
 
 .App-logo {
@@ -49,6 +48,13 @@ a.navlink {
   
   padding-left: 10%;
   padding-right: 5%;
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight: bolder;
   
 }
 
@@ -104,8 +110,9 @@ width: 100%
 
 input[type=submit] {
   background-color: gold;
-  border: none;
-  color: white;
+  border: black 2px solid;
+  border-color: black;
+  color: black;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -113,6 +120,16 @@ input[type=submit] {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 4px;
+}
+h1, h2, h3, h4, h5 {
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight:bolder;
+  
 }
 
 input[type=text]{
