@@ -185,3 +185,7 @@ li {
         0 -0.07em black;
         font-weight:bolder;
 }
+
+.favorites-container ul li{
+  list-style-type: none;
+}

@@ -3,6 +3,7 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
 import Favorite from './Favorite';
+import FavoriteMap from './FavoriteMap';
 
 const Favorites = () => {
 
@@ -19,7 +20,8 @@ const Favorites = () => {
     }, []);
 
     return (
-        <div className = "breweries-container">
+        <>
+        <div className = "favorites-container">
         <ul>
             {favorites.map(f => {
                 if (f.brewery){
@@ -45,6 +47,8 @@ const Favorites = () => {
              })}
             </ul>
         </div>
+        <FavoriteMap />
+        </>
     );
 }
 
