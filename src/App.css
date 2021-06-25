@@ -73,7 +73,8 @@ form.search-form input {
  grid-row-start: 3;
 grid-column-start: 1;
 justify-self: left;
-width: 100%
+width: 100%;
+overflow-y: scroll;
 }
 
 #mapid {
@@ -188,4 +189,8 @@ li {
 
 .favorites-container ul li{
   list-style-type: none;
+}
+
+.favorites-container {
+  overflow-y: scroll;
 }
