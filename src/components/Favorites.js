@@ -18,7 +18,7 @@ const Favorites = () => {
             
         };
     }, []);
-
+if (favorites.length > 0 && favorites){
     return (
         <>
         <div className = "favorites-container">
@@ -50,8 +50,17 @@ const Favorites = () => {
         <FavoriteMap />
         </>
     );
+} else {
+    return (
+        <>
+        <div className = "favorites-container">
+            <h3>Find Some Favorite Breweries<br/>By Going To The Search Page</h3>
+        </div>
+        <FavoriteMap />
+        </>
+    )
 }
-
+}
 
 
 
