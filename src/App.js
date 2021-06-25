@@ -10,7 +10,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar'
 import Favorites from './components/Favorites';
 import { getFavorites } from './actions/favorite';
-import Background from './images/twigs-hop-seamless-pattern-with-repeating-images-malt-leaves-hand-drawing-white_1284-49324.jpeg'
+import Background from './images/brewdog-background-img.jpg'
 
 
 
@@ -32,9 +32,11 @@ function App() {
   return (
     <Router>
     
-    <div className="App" style = {{
+    <div className="App" 
+    style = {{
       backgroundImage: `url(${Background})` 
-    }}>
+    }}
+    >
     <div className="grid-wrapper">
     {isLoggedIn ? <Navbar/> : null}
     <Switch>
