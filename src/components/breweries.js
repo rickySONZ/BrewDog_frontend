@@ -23,6 +23,7 @@ const Breweries = () => {
     return (
         <div className="breweries-container">
             <ul>
+            <h3 className="favorite-title">Favorite?</h3>
                 { 
                     searchedBreweries.map(b => { 
                         
@@ -41,7 +42,7 @@ const Breweries = () => {
                     checked = {favorites.find(f => f.brewery_id === b.id) ? true : false} 
 
                     />})}
-                    
+                   
             </ul>
         </div>
     );

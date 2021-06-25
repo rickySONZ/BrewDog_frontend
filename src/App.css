@@ -135,3 +135,7 @@ input[type=checkbox]{
   display: inline;
  top: -2.5em;
 }
+
+.favorite-title {
+  margin-left: 22em;
+}
