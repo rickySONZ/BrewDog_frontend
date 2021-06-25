@@ -17,8 +17,7 @@ const FavoriteMap = () => {
         <div id="favmapid">
             <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
                       height:"650px",
-                      width: "900px",
-                      float: "right"
+                      width: "900px"
                   }}>
                       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

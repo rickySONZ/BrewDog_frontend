@@ -194,3 +194,10 @@ li {
 .favorites-container {
   overflow-y: scroll;
 }
+
+.sign-in-div {
+  grid-column: 1/-1;
+}
+.registration-div {
+  grid-column: 1/-1;
+}

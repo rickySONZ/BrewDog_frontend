@@ -18,7 +18,7 @@ class RegistrationForm extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="registration-div">
             <form className= "registration-form" onSubmit={this.handleSubmit}>
             <h1>Sign Up</h1>
             <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
