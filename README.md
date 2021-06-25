@@ -9,6 +9,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To launch run ```npm start``` or ```yarn start```
 Devices running with an Apple M1 Chip may have to run ```env FAST_REFRESH=false npm start``` in order to run properly as there is current a compatiblity issue with Create-React-App.
 
+Hosted on http://localhost:3000/
+
 Video Demonstration posted here https://www.loom.com/share/2040592c7ae4404eb93f84d661c22f42
 
 ## Contributing
