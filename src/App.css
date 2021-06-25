@@ -91,9 +91,9 @@ width: 100%
 
  .navbar {
  grid-column: 1/-1;
- justify-self: center;
+
  grid-row-start: 1;
- object-position: center top;
+ 
  
 }
 
@@ -138,4 +138,16 @@ input[type=checkbox]{
 
 .favorite-title {
   margin-left: 22em;
+}
+
+#nav-link-logo{
+  height: 35px;
+padding-right: .5em;
+  padding-top: .25em;
+  
+  
+}
+
+#nav-link-logo-title{
+  padding-bottom: .5em;
 }
