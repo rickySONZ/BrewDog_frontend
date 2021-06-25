@@ -12,6 +12,7 @@ const FavoriteMap = () => {
     let favoriteBreweries = {
        
     }
+
     return (
         <div id="favmapid">
             <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
@@ -26,10 +27,16 @@ const FavoriteMap = () => {
       {favorites.map((f, i) => {
             
             
-            if (f.brewery.longitude && f.brewery.latitude){
+            if (f.brewery && f.brewery.longitude && f.brewery.latitude){
               return (
                    <Marker key={f.brewery.uid + i} position={[f.brewery.latitude, f.brewery.longitude]} >
                    <Popup>{f.brewery.name}</Popup>
+                 </Marker>)
+            } else {
+                let fb = breweries.find(b => b.id === f.brewery_id)
+                return (
+                   <Marker key={fb.uid + i} position={[fb.latitude, fb.longitude]} >
+                   <Popup>{fb.name}</Popup>
                  </Marker>)
             }})}   
 
