@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import {  getSearchedBreweries } from '../actions/brewery';
+import { getFavorites } from '../actions/favorite';
 
 
 
@@ -13,6 +14,7 @@ function SearchForm(props) {
 
     function handleSubmit(event){
         event.preventDefault()
+        dispatch(getFavorites())
         let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
         dispatch(getSearchedBreweries(filteredBreweries))
     }

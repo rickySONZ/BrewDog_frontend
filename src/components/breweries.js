@@ -13,8 +13,9 @@ const Breweries = () => {
     const favorites = useSelector(state => state.favoritesR.favorites)
 
     useEffect(() => {
+        dispatch(getFavorites())
         return () => {
-            dispatch(getFavorites())
+            
         };
     }, []);
 

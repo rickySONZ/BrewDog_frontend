@@ -1,3 +1,6 @@
+import { getFavorites } from "./favorite"
+
+
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -20,6 +23,7 @@ export const userPostFetch = user => {
                 localStorage.setItem("user_id", data.user.id)
             }
         })
+        .then(dispatch(getFavorites()))
     }
 }
 

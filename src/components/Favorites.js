@@ -33,8 +33,9 @@ if (favorites.length > 0 && favorites){
                 address={f.brewery.address}
                 city = {`${f.brewery.city}, ${f.brewery.state}`}
                 checked = {true}
-            /> } else {
+            /> } else if (breweries.find(b => b.id === f.brewery_id)){
                 let g = breweries.find(b => b.id === f.brewery_id)
+                debugger
                 return <Favorite 
                 key = {f.id}
                 name={g.name}
