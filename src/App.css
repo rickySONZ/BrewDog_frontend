@@ -64,8 +64,13 @@ a.navlink {
 
 form.search-form input {
   margin: 1%;
+  
+}
+
+form.search-form input[type=text]{
+  margin: 1%;
   padding-right: 5%;
- 
+  
 }
 
 /* set this to overflow to make this scrollable */
