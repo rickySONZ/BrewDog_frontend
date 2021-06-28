@@ -1,4 +1,4 @@
-import React, { useEffect, useDispatch } from 'react';
+import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 
@@ -18,7 +18,6 @@ const Map = () => {
     <MapContainer center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} zoom={12} scrollWheelZoom={false} style={{
                             height:"700px",
                             width: "900px"
-                           
                         }}>
                         <ChangeView center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} />
     <TileLayer
