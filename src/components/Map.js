@@ -16,8 +16,9 @@ const Map = () => {
     return(
       <div id = "mapid">
     <MapContainer center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} zoom={12} scrollWheelZoom={false} style={{
-                            height:"550px",
+                            height:"500px",
                             width: "700px"
+                      
                         }}>
                         <ChangeView center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} />
     <TileLayer
@@ -38,9 +39,8 @@ const Map = () => {
             return (
               <div id="mapid">
              <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
-                      height:"550px",
-                      width: "700px",
-                      float: "right"
+                      height:"500px",
+                      width: "700px"
                   }}>
                 <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
