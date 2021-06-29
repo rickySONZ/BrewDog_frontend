@@ -9,7 +9,6 @@ import { getProfileFetch } from './actions/auth'
 import Home from './components/Home';
 import Navbar from './components/Navbar'
 import Favorites from './components/Favorites';
-import { getFavorites } from './actions/favorite';
 import Background from './images/brewdog-background-img.jpg'
 
 

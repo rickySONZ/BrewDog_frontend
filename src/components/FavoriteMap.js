@@ -1,5 +1,5 @@
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import React, { useEffect } from 'react'
 import { getFavorites } from '../actions/favorite';
 

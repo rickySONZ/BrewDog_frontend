@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { clearSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
 import Favorite from './Favorite';
 import FavoriteMap from './FavoriteMap';

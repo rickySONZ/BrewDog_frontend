@@ -15,7 +15,7 @@ function SearchForm(props) {
     function handleSubmit(event){
         event.preventDefault()
         dispatch(getFavorites())
-        let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
+        let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
         dispatch(getSearchedBreweries(filteredBreweries))
     }
 

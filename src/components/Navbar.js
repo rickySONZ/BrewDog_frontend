@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getProfileFetch, logoutUser } from '../actions/auth';
+import { logoutUser } from '../actions/auth';
 import { clearSearchedBreweries } from '../actions/brewery';
 import { clearFavoritesOnLogout } from '../actions/favorite';
 

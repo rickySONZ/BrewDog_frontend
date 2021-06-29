@@ -7,8 +7,6 @@ import Brewery from './Brewery';
 const Breweries = () => {    
     
     const dispatch = useDispatch()
-    const currentUser = useSelector(state => state.signInR.currentUser)
-    const breweries = useSelector(state => state.breweriesR.breweries)
     const searchedBreweries = useSelector(state => state.breweriesR.searchedBreweries)
     const favorites = useSelector(state => state.favoritesR.favorites)
 

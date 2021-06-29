@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { addFavorite, deleteFavorite, getFavorites } from '../actions/favorite';
+import { addFavorite, deleteFavorite } from '../actions/favorite';
 
 
 const Brewery = (props) => {
 
-    const currentUser = useSelector(state => state.signInR.currentUser)
     const favorites = useSelector(state => state.favoritesR.favorites)
 
     const dispatch = useDispatch()

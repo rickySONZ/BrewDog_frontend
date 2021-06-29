@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { deleteFavorite, getFavorites } from '../actions/favorite';
+import { deleteFavorite } from '../actions/favorite';
 
 
 
