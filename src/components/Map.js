@@ -38,8 +38,8 @@ const Map = () => {
             return (
               <div id="mapid">
              <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
-                      height:"650px",
-                      width: "900px",
+                      height:"550px",
+                      width: "700px",
                       float: "right"
                   }}>
                 <TileLayer
