@@ -19,7 +19,7 @@ class SignInForm extends Component {
             <div className="sign-in-div">
                 <form className = "sign-in-form" onSubmit={this.handleSubmit}>
                     <h1>Login</h1>
-                    <input type = "text" placeholder = "Username" name="username" value={this.password} onChange={this.handleChange}/><br></br>
+                    <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
                     <input type = "password" placeholder = "Password" name="password" value={this.password} onChange={this.handleChange}/><br></br>
                     <input type= "submit" value = "Login"></input>
                 </form>
