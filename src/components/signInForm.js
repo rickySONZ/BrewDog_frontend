@@ -12,9 +12,7 @@ class SignInForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log('a')
         this.props.userLoginFetch(this.state)
-        console.log('b')
     }
     render() {
         return (

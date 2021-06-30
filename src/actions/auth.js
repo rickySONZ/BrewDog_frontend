@@ -1,6 +1,3 @@
-import { getFavorites } from "./favorite"
-
-
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -14,16 +11,15 @@ export const userPostFetch = user => {
         .then(resp=> resp.json())
         .then(data => {
             if (data.message){
-                console.log(data.errors)
+                
                 alert(data.error)
             } else {
-                console.log(data)
+                
                 dispatch(loginUser(data.user))
                 localStorage.setItem("token", data.token)
                 localStorage.setItem("user_id", data.user.id)
             }
         })
-        .then(dispatch(getFavorites()))
     }
 }
 
@@ -33,9 +29,7 @@ const loginUser = userObj => ({
 })
 // Used to fetch user upon login
 export const userLoginFetch = user => {
-    console.log('c')
     return dispatch => {
-        console.log('d')
         return fetch("http://localhost:8080/api/v1/login", {
             method: "POST",
             headers: {
@@ -46,10 +40,7 @@ export const userLoginFetch = user => {
         })
             .then(resp => resp.json())
             .then(data => {
-                console.log('e')
-                console.log(data)
                 if (data.status !== 200){
-                    console.log(data.error)
                     alert(data.error)
                 } else {
                     dispatch(loginUser(data.user))
