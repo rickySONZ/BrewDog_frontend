@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { getFavorites } from '../actions/favorite';
 import Favorite from './Favorite';
 import FavoriteMap from './FavoriteMap';
+
 
 const Favorites = () => {
 

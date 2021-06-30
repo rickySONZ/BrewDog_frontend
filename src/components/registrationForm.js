@@ -19,6 +19,7 @@ class RegistrationForm extends Component {
     render() {
         return (
             <div className="registration-div">
+            <h1><img id="nav-link-logo" src={process.env.PUBLIC_URL + '/kisspng-beer-brewing-grains-malts-india-pale-ale-bitter-underdog-5b3160d5c657c4.2574535915299627098124.jpg'}/>BrewDog</h1>
             <form className= "registration-form" onSubmit={this.handleSubmit}>
             <h1>Sign Up</h1>
             <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
