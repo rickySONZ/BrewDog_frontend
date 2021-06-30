@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import {  getSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
-
 
 
 function SearchForm(props) {
@@ -12,10 +11,12 @@ function SearchForm(props) {
 
     const dispatch = useDispatch()
 
+    const breweries = useSelector(state => state.breweriesR.breweries)
+
     function handleSubmit(event){
         event.preventDefault()
         dispatch(getFavorites())
-        let filteredBreweries = props.breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
+        let filteredBreweries = breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
         dispatch(getSearchedBreweries(filteredBreweries))
     }
 
@@ -81,10 +82,7 @@ function SearchForm(props) {
     );
 }
 
-const mapStateToProps = state => {
-    return ({breweries: state.breweriesR.breweries,
-    currentUser: state.signInR.currentUser,
-searchedBreweries: state.breweriesR.searchedBreweries})
-}
 
-export default connect(mapStateToProps, null)(SearchForm);
+
+
+export default connect(null, null)(SearchForm);

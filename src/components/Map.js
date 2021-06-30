@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
-  map.setView(center, zoom = 12);
+  map.setView(center, zoom = 11);
   return null;
 }
 
@@ -15,7 +15,7 @@ const Map = () => {
  if(searchedBreweries[0]){
     return(
       <div id = "mapid">
-    <MapContainer center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} zoom={12} scrollWheelZoom={false} style={{
+    <MapContainer center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} zoom={11} scrollWheelZoom={false} style={{
                             height:"500px",
                             width: "700px"
                       
