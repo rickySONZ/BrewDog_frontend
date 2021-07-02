@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-import { userPostFetch } from '../actions/auth';
+import { removeError, userPostFetch } from '../actions/auth';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
 
 
 class RegistrationForm extends Component {
+
+    componentWillUnmount = () => {
+        this.props.removeError()
+    }
 
     handleChange = event => {
         this.setState({
@@ -18,14 +22,14 @@ class RegistrationForm extends Component {
         this.props.userPostFetch(this.state)
     }
     render() {
-        if(this.props.error){
+        if(this.props.error && this.props.error.length > 0){
             return(
                 <div className="registration-div">
             <h1><img id="nav-link-logo" src={process.env.PUBLIC_URL + '/kisspng-beer-brewing-grains-malts-india-pale-ale-bitter-underdog-5b3160d5c657c4.2574535915299627098124.jpg'}/>BrewDog</h1>
             <form className= "registration-form" onSubmit={this.handleSubmit}>
             <h1>Sign Up</h1>
             <Alert severity="error">
-    {this.props.error}
+    {String(this.props.error)}
   </Alert>
             <input type = "text" placeholder = "Username" name="username" value={this.username} onChange={this.handleChange}/><br></br>
             <input type = "text" placeholder = "Email" name="email" value={this.email} onChange={this.handleChange}/><br></br>
@@ -54,7 +58,8 @@ class RegistrationForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
+    userPostFetch: userInfo => dispatch(userPostFetch(userInfo)),
+    removeError: () => dispatch(removeError())
 })
 
 const mapStateToProps = (state) => {

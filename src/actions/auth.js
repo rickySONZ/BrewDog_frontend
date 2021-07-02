@@ -32,7 +32,6 @@ export const userPostFetch = user => {
                 localStorage.setItem("user_id", data.user.id)
             }
         })
-        .then(localStorage.removeItem("error"))
     }
 }
 
