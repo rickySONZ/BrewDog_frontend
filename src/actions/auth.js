@@ -1,7 +1,3 @@
-import { Snackbar } from "@material-ui/core"
-import { render } from "@testing-library/react"
-import Alert from '@material-ui/lab/Alert';
-
 
 export const userPostFetch = user => {
     return dispatch => {
@@ -19,11 +15,12 @@ export const userPostFetch = user => {
                 if(data.username){
                     console.log(data.username)
                     dispatch(authError(`Username ${data.username}`))
-                
                 }
                 else if (data.email){
                     console.log(data.email)
                     dispatch(authError(`Email ${data.email}`)) 
+                } else if (data.password){
+                    dispatch(authError(`Password ${data.password}`))
                 }
             } else {
                 
