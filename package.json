@@ -12,6 +12,7 @@
     "google-map-react": "^2.1.10",
     "google-react-maps": "^1.5.0",
     "leaflet": "^1.7.1",
+    "notistack": "^1.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-flash-message": "^1.0.7",

@@ -54,11 +54,7 @@ export const userLoginFetch = user => {
             .then(resp => resp.json())
             .then(data => {
                 if (data.status !== 200){
-                    if (data.username){
-                        dispatch(authError(`Username ${data.username}`))
-                    } else if (data.password){
-                        dispatch(authError(`Username ${data.password}`))
-                    }
+                    dispatch(authError(data.error))
                 } else {
                     dispatch(loginUser(data.user))
                     localStorage.setItem("token", data.token)
@@ -100,9 +96,9 @@ export const logoutUser = () => ({
     type: 'LOGOUT_USER'
 })
 
-export const authError = (error) => ({
+export const authError = e => ({
     type: 'USER_ERROR',
-    payload: error
+    payload: e
 })
 
 export const removeError = () => ({
