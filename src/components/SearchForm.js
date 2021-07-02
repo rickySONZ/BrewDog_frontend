@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
+import { authError } from '../actions/auth';
 import {  getSearchedBreweries } from '../actions/brewery';
 import { getFavorites } from '../actions/favorite';
-
 
 function SearchForm() {
 
@@ -12,11 +12,15 @@ function SearchForm() {
     const dispatch = useDispatch()
 
     const breweries = useSelector(state => state.breweriesR.breweries)
+    const error = useSelector(state => state.signInR.error)
 
     function handleSubmit(event){
         event.preventDefault()
         dispatch(getFavorites())
         let filteredBreweries = breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
+        if(filteredBreweries.length === 0){
+            dispatch(authError("I can't seem to find that town or anywhere in that town to get a beer!"))
+        }
         dispatch(getSearchedBreweries(filteredBreweries))
     }
 
