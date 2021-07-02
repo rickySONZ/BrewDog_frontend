@@ -1,3 +1,8 @@
+import { Snackbar } from "@material-ui/core"
+import { render } from "@testing-library/react"
+import Alert from '@material-ui/lab/Alert';
+
+
 export const userPostFetch = user => {
     return dispatch => {
         return fetch("http://localhost:8080/api/v1/users", {
@@ -10,9 +15,16 @@ export const userPostFetch = user => {
         })
         .then(resp=> resp.json())
         .then(data => {
-            if (data.message){
+            if (data.status !== 200){
+                if(data.username){
+                    console.log(data.username)
+                    dispatch(authError(`Username ${data.username}`))
                 
-                alert(data.error)
+                }
+                else if (data.email){
+                    console.log(data.email)
+                    dispatch(authError(`Email ${data.email}`)) 
+                }
             } else {
                 
                 dispatch(loginUser(data.user))
@@ -20,6 +32,7 @@ export const userPostFetch = user => {
                 localStorage.setItem("user_id", data.user.id)
             }
         })
+        .then(localStorage.removeItem("error"))
     }
 }
 
@@ -41,7 +54,11 @@ export const userLoginFetch = user => {
             .then(resp => resp.json())
             .then(data => {
                 if (data.status !== 200){
-                    alert(data.error)
+                    if (data.username){
+                        dispatch(authError(`Username ${data.username}`))
+                    } else if (data.password){
+                        dispatch(authError(`Username ${data.password}`))
+                    }
                 } else {
                     dispatch(loginUser(data.user))
                     localStorage.setItem("token", data.token)
@@ -81,4 +98,13 @@ export const getProfileFetch = () => {
 
 export const logoutUser = () => ({
     type: 'LOGOUT_USER'
+})
+
+export const authError = (error) => ({
+    type: 'USER_ERROR',
+    payload: error
+})
+
+export const removeError = () => ({
+    type: 'REMOVE_ERROR'
 })
