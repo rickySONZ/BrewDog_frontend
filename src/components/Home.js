@@ -10,10 +10,6 @@ import Map from './Map'
 
 class Home extends Component {
 
-    componentWillMount = () => {
-        this.props.getFavorites()
-    }
-
     render() {
         return (
             <>
