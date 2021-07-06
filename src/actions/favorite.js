@@ -1,6 +1,6 @@
 export const getFavorites = () => {
     return (dispatch) => {
-        fetch(`http://localhost:8080/api/v1/users/${localStorage.user_id}/favorites`)
+        fetch(`http://brewdog-backend.herokuapp.com/api/v1/users/${localStorage.user_id}/favorites`)
         .then(resp => resp.json())
         .then(favorites =>{
             console.log(favorites)
@@ -15,7 +15,7 @@ export const getFavorites = () => {
 export const deleteFavorite = (id) => {
     
     return (dispatch) => {
-        fetch(`http://localhost:8080/api/v1/users/${localStorage.user_id}/favorites/${id}`,{
+        fetch(`http://brewdog-backend.herokuapp.com/api/v1/users/${localStorage.user_id}/favorites/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const clearFavoritesOnLogout = () => {
 
 export const addFavorite = (favorite) => {
     return(dispatch) => {
-    fetch(`http://localhost:8080/api/v1/users/${localStorage.user_id}/favorites`, {
+    fetch(`http://brewdog-backend.herokuapp.com/api/v1/users/${localStorage.user_id}/favorites`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

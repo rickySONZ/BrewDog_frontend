@@ -7,7 +7,7 @@ import { getFavorites } from '../actions/favorite';
 function SearchForm() {
 
     const [searchCity, setSearchCity] = useState('')
-    const [searchState, setSearchState] = useState('')
+    const [searchState, setSearchState] = useState('Alabama')
 
     const dispatch = useDispatch()
 
@@ -16,19 +16,18 @@ function SearchForm() {
 
     function handleSubmit(event){
         event.preventDefault()
-        let filteredBreweries = breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase() && b.state.toLowerCase() === searchState.toLowerCase())
+        let filteredBreweries = breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
+        console.log(searchState)
         if(filteredBreweries.length === 0){
             dispatch(authError("I can't seem to find that town or anywhere in that town to get a beer!"))
         }
         dispatch(getSearchedBreweries(filteredBreweries))
     }
-
-
     return (
         <>
             <form className="search-form" onSubmit={handleSubmit}>
                 <input type="text" value={searchCity} placeholder="Search City" onChange={e => setSearchCity(e.target.value)} />
-                <select value={searchState} placeholder="Select State" onChange={e => setSearchState(e.target.value)}>
+                <select value={searchState} onChange={e => setSearchState(e.target.value)}>
                 <option value="Alabama">Alabama</option>
                 <option value="Alaska">Alaska</option>
                 <option value="Arizona">Arizona</option>
