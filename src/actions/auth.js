@@ -1,7 +1,7 @@
 
 export const userPostFetch = user => {
     return dispatch => {
-        return fetch("http://brewdog-backend.herokuapp.com/api/v1/users", {
+        return fetch("https://brewdog-backend.herokuapp.com/api/v1/users", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const loginUser = userObj => ({
 // Used to fetch user upon login
 export const userLoginFetch = user => {
     return dispatch => {
-        return fetch("http://brewdog-backend.herokuapp.com/api/v1/login", {
+        return fetch("https://brewdog-backend.herokuapp.com/api/v1/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export const getProfileFetch = () => {
     return dispatch => {
         const token = localStorage.token
         if (token) {
-            return fetch("http://localhost:8080/api/v1/profile", {
+            return fetch("https://localhost:8080/api/v1/profile", {
                 method: "GET",
                 headers: {
                 'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 // Initially used upon app loading to have all breweries in DB loaded to store
 export const getBreweries = () => {
     return (dispatch) => {
-        fetch("http://brewdog-backend.herokuapp.com/api/v1/breweries")
+        fetch("https://brewdog-backend.herokuapp.com/api/v1/breweries")
         .then(resp=> resp.json())
         // .then(data => console.log(data))
         .then(breweries => {
