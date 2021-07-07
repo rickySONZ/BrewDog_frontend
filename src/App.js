@@ -1,15 +1,15 @@
 import './App.css';
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import SignInForm from '/components/SignInForm';
-import RegistrationForm from '/components/RegistrationForm';
-import { getBreweries } from '/actions/brewery';
+import SignInForm from './components/SignInForm';
+import RegistrationForm from './components/RegistrationForm';
+import { getBreweries } from './actions/brewery';
 import { useEffect } from 'react';
-import { getProfileFetch } from '/actions/auth'
-import Home from '/components/Home';
-import Navbar from '/components/Navbar'
-import Favorites from '/components/Favorites';
-import Background from '/images/brewdog-background-img.jpg'
+import { getProfileFetch } from './actions/auth'
+import Home from './components/Home';
+import Navbar from './components/Navbar'
+import Favorites from './components/Favorites';
+import Background from './images/brewdog-background-img.jpg'
 
 
 
