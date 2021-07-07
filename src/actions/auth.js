@@ -76,12 +76,11 @@ export const getProfileFetch = () => {
             })
             .then(resp => resp.json())
             .then(data => {
-                if (data.message){ 
+                if (data.error){ 
                     localStorage.removeItem("token")
                     localStorage.removeItem("user_id")
                 } else {
                     dispatch(loginUser(data.user))
-                    console.log(data)
                     // localStorage.setItem("user_id", data.user.id)
                 }
             })
