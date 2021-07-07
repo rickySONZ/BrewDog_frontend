@@ -66,7 +66,7 @@ export const getProfileFetch = () => {
     return dispatch => {
         const token = localStorage.token
         if (token) {
-            return fetch("https://localhost:8080/api/v1/profile", {
+            return fetch("https://brewdog-backend.herokuapp.com/api/v1/profile", {
                 method: "GET",
                 headers: {
                 'Content-Type': 'application/json',
