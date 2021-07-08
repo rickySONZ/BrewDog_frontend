@@ -18,7 +18,6 @@ const Favorite = (props) => {
             id={`checkbox-${props.id}`}
             key = {fav_id}
         defaultChecked={checkedState}
-        // onChange={() => setCheckedState(!checkedState)}
         onClick={() => dispatch(deleteFavorite(fav_id))}
         
       />
