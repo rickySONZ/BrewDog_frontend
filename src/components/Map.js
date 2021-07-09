@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { useMediaPredicate } from 'react-media-hook';
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
@@ -39,8 +40,8 @@ const Map = () => {
             return (
               <div id="mapid">
              <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
-                      height:"500px",
-                      width: "700px"
+                      height:"75%",
+                      width: "95%"
                   }}>
                 <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

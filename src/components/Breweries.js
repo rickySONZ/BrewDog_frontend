@@ -27,6 +27,7 @@ const Breweries = () => {
         <div className="breweries-container">
             <ul>
             <h3 className="favorite-title">Favorite?</h3>
+            <h3>Breweries Sniffed Out</h3>
                 { 
                     searchedBreweries.map(b => { 
                         

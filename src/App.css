@@ -80,14 +80,16 @@ grid-column-start: 1;
 justify-self: left;
 width: 100%;
 overflow-y: scroll;
+right: 20%;
+position: relative;
 }
 
 #mapid {
-
   grid-column: 2 / -1;
-  position: relative;
+  width: 100%;
   padding-bottom: 3px;
-  height: 95vh;
+  height: 85vh;
+  margin: auto;
 }
 
 .grid-wrapper{
@@ -160,7 +162,7 @@ input[type=password]{
 input[type=checkbox]{
   background: gold;
   border-color: gold;
-  margin-left: 30em;
+  left: 30%;
   position: relative;
   display: inline;
  top: -2.5em;
@@ -212,3 +214,23 @@ li {
   grid-column: 1/-1;
 }
 
+@media only screen and (max-width: 569px) {
+  .grid-wrapper{
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .navbar {
+    grid-row: 1/2;
+  }
+  .search-form {
+    grid-row: 2/3;
+  }
+  #mapid {
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    height: 40vh;
+  }
+  .breweries-container {
+    grid-column: 1/-1;
+    grid-row: 4/5;
+  }
+}
