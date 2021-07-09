@@ -90,6 +90,15 @@ position: relative;
   padding-bottom: 3px;
   height: 85vh;
   margin: auto;
+  
+}
+
+#favmapid {
+  grid-column: 2 / -1;
+  width: 100%;
+  
+  height: 85vh;
+  margin: 3% auto;
 }
 
 .grid-wrapper{
@@ -199,8 +208,13 @@ li {
   list-style-type: none;
 }
 
+.favorite-title {
+  text-decoration: underline;
+}
+
 .favorites-container {
   overflow-y: scroll;
+  width: 100%;
 }
 
 .sign-in-div {
@@ -232,15 +246,25 @@ li {
    padding: .5%;
     
   }
+.favorites-container {
+  grid-row: 3/5;
+  grid-column: 1/-1;
+  height: 40vh;
+}
+  #favmapid {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    height: 33vh;
+  }
   #mapid {
     grid-column: 1/-1;
     grid-row: 3/4;
-    height: 30vh;
+    height: 33vh;
   }
   .breweries-container {
     grid-column: 1/-1;
     grid-row: 4/5;
-    height: 40vh;
+    height: 42vh;
     margin: auto;
     right: 0%;
   }

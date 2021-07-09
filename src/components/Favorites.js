@@ -23,7 +23,7 @@ if (favorites.length > 0 && favorites){
         <>
         <div className = "favorites-container">
         <ul>
-        <h3 className="favorite-title">Delete?</h3>
+        <h3 className="favorite-title">Uncheck Brewery To<br/>Remove From Favorites</h3>
             {favorites.map(f => {
                 if (f.brewery){
                 return <Favorite 
