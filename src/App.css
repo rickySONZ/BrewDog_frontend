@@ -115,7 +115,7 @@ position: relative;
 
  .navbar {
  grid-column: 1/-1;
-
+padding-top: 5%;
  grid-row-start: 1;
  
  
