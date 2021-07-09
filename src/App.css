@@ -233,6 +233,7 @@ li {
 @media only screen and (max-width: 600px) {
   .grid-wrapper{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
   }
   .navbar {
     grid-row: 1/2;
