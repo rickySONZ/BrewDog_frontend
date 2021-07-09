@@ -40,8 +40,8 @@ const Map = () => {
             return (
               <div id="mapid">
              <MapContainer center={[39.809860, -96.555183]} zoom={4} scrollWheelZoom={false} style={{
-                      height:"75%",
-                      width: "95%"
+                      height:"100%",
+                      width: "100%"
                   }}>
                 <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

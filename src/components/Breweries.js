@@ -26,8 +26,8 @@ const Breweries = () => {
     return (
         <div className="breweries-container">
             <ul>
-            <h3 className="favorite-title">Favorite?</h3>
-            <h3>Breweries Sniffed Out</h3>
+            
+            <h3>Breweries Sniffed Out<br/>Check to Favorite</h3>
                 { 
                     searchedBreweries.map(b => { 
                         
@@ -65,7 +65,7 @@ return(
     return (
         <div className="breweries-container">
             <ul>
-                <h3>Use The Search Bars Above To Find Breweries<br/> In Any City The United States</h3>
+                <h3>Use The Search Bars<br/> Above To Find Breweries<br/> In Any City In The United States</h3>
             </ul>
         </div>
     )

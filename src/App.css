@@ -80,7 +80,7 @@ grid-column-start: 1;
 justify-self: left;
 width: 100%;
 overflow-y: scroll;
-right: 20%;
+right: 22%;
 position: relative;
 }
 
@@ -162,14 +162,10 @@ input[type=password]{
 input[type=checkbox]{
   background: gold;
   border-color: gold;
-  left: 30%;
+  left: 45%;
   position: relative;
   display: inline;
  top: -2.5em;
-}
-
-.favorite-title {
-  margin-left: 22em;
 }
 
 #nav-link-logo{
@@ -214,7 +210,13 @@ li {
   grid-column: 1/-1;
 }
 
-@media only screen and (max-width: 569px) {
+.breweries-container h3 {
+  text-decoration: underline;
+  position: relative;
+  left: 7%;
+}
+
+@media only screen and (max-width: 600px) {
   .grid-wrapper{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   }
@@ -224,13 +226,25 @@ li {
   .search-form {
     grid-row: 2/3;
   }
+  .search-form input[type=submit]{
+    
+   font-size:small;
+   padding: .5%;
+    
+  }
   #mapid {
     grid-column: 1/-1;
     grid-row: 3/4;
-    height: 40vh;
+    height: 30vh;
   }
   .breweries-container {
     grid-column: 1/-1;
     grid-row: 4/5;
+    height: 40vh;
+    margin: auto;
+    right: 0%;
+  }
+  .breweries-container h3 {
+    left: 0%;
   }
 }
