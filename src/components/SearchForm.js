@@ -16,7 +16,7 @@ function SearchForm() {
 
     function handleSubmit(event){
         event.preventDefault()
-        let filteredBreweries = breweries.filter(b => b.city.toLowerCase() == searchCity.toLowerCase() && b.state.toLowerCase() == searchState.toLowerCase())
+        let filteredBreweries = breweries.filter(b => b.city.toLowerCase() === searchCity.toLowerCase().trim() && b.state.toLowerCase() === searchState.toLowerCase().trim())
         console.log(searchState)
         if(filteredBreweries.length === 0){
             dispatch(authError("I can't seem to find that town or anywhere in that town to get a beer!"))
