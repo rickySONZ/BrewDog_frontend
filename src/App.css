@@ -115,7 +115,6 @@ position: relative;
 
  .navbar {
  grid-column: 1/-1;
-padding-top: 5%;
  grid-row-start: 1;
  
  
@@ -238,6 +237,7 @@ li {
   .navbar {
     grid-row: 1/2;
     width: 100%;
+    padding-top: 2%
   }
   a.navlink {
     padding-left:3%;
@@ -276,5 +276,8 @@ li {
   }
   .breweries-container h3 {
     left: 0%;
+  }
+  .navlink-logo-text {
+    display: none;
   }
 }
