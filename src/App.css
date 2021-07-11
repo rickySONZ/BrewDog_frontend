@@ -229,7 +229,7 @@ li {
   left: 7%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 630px) {
   .grid-wrapper{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
