@@ -219,8 +219,28 @@ li {
 .sign-in-div {
   grid-column: 1/-1;
 }
+
+.sign-in-div a {
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight:bolder;
+}
 .registration-div {
   grid-column: 1/-1;
+}
+
+.registration-div a {
+  color: gold;
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+        font-weight:bolder;
 }
 
 .breweries-container h3 {
