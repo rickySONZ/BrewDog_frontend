@@ -11,19 +11,19 @@ const Favorite = (props) => {
     let fav_id = props.id
     return (
         <>
-            <li key = {props.name}><b>{props.name}</b><br/>
-            {props.address}<br />
-            {props.city}
+            <li key={props.name}><b>{props.name}</b><br />
+                {props.address}<br />
+                {props.city}
             </li> <input type="checkbox"
-            id={`checkbox-${props.id}`}
-            key = {fav_id}
-        defaultChecked={checkedState}
-        onClick={() => dispatch(deleteFavorite(fav_id))}
-        
-      />
+                id={`checkbox-${props.id}`}
+                key={fav_id}
+                defaultChecked={checkedState}
+                onClick={() => dispatch(deleteFavorite(fav_id))}
+
+            />
         </>
     );
 }
 
 
- export default connect(null, null)(Favorite);
+export default connect(null, null)(Favorite);

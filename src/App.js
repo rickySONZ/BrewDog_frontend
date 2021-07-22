@@ -24,36 +24,36 @@ function App() {
   useEffect(() => {
     dispatch(getProfileFetch())
     dispatch(getBreweries())
-    return () => {    
+    return () => {
     };
   }, []);
 
   return (
     <Router>
-    
-    <div className="App" 
-    style = {{
-      backgroundImage: `url(${Background})` 
-    }}
-    >
-    <div className="grid-wrapper">
-    {isLoggedIn ? <Navbar/> : null}
-    <Switch>
-    <Route path ={`/users/:id/favorites`}>
-      {isLoggedIn ? <Favorites/> : <Route exact path ="/login"><SignInForm/></Route>}
-      </Route>
-      <Route exact path="/login" >
-        {isLoggedIn ? <Redirect to="/" /> : <SignInForm />}
-      </Route>
-      <Route exact path="/register">
-      {isLoggedIn ? <Redirect to="/" /> : <RegistrationForm />}
-      </Route>
-      <Route path="/">
-    {isLoggedIn ? <Home/> : <Redirect to="/login" />}
-    </Route>
-    </Switch>
-    </div>
-    </div>
+
+      <div className="App"
+        style={{
+          backgroundImage: `url(${Background})`
+        }}
+      >
+        <div className="grid-wrapper">
+          {isLoggedIn ? <Navbar /> : null}
+          <Switch>
+            <Route path={`/users/:id/favorites`}>
+              {isLoggedIn ? <Favorites /> : <Route exact path="/login"><SignInForm /></Route>}
+            </Route>
+            <Route exact path="/login" >
+              {isLoggedIn ? <Redirect to="/" /> : <SignInForm />}
+            </Route>
+            <Route exact path="/register">
+              {isLoggedIn ? <Redirect to="/" /> : <RegistrationForm />}
+            </Route>
+            <Route path="/">
+              {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }

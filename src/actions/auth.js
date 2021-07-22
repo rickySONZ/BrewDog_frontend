@@ -7,28 +7,28 @@ export const userPostFetch = user => {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
-            body: JSON.stringify({user})
+            body: JSON.stringify({ user })
         })
-        .then(resp=> resp.json())
-        .then(data => {
-            if (data.status !== 200){
-                if(data.username){
-                    console.log(data.username)
-                    dispatch(authError(`Username ${data.username}`))
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.status !== 200) {
+                    if (data.username) {
+                        console.log(data.username)
+                        dispatch(authError(`Username ${data.username}`))
+                    }
+                    else if (data.email) {
+                        console.log(data.email)
+                        dispatch(authError(`Email ${data.email}`))
+                    } else if (data.password) {
+                        dispatch(authError(`Password ${data.password}`))
+                    }
+                } else {
+
+                    dispatch(loginUser(data.user))
+                    localStorage.setItem("token", data.token)
+                    localStorage.setItem("user_id", data.user.id)
                 }
-                else if (data.email){
-                    console.log(data.email)
-                    dispatch(authError(`Email ${data.email}`)) 
-                } else if (data.password){
-                    dispatch(authError(`Password ${data.password}`))
-                }
-            } else {
-                
-                dispatch(loginUser(data.user))
-                localStorage.setItem("token", data.token)
-                localStorage.setItem("user_id", data.user.id)
-            }
-        })
+            })
     }
 }
 
@@ -45,20 +45,20 @@ export const userLoginFetch = user => {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify({user})
+            body: JSON.stringify({ user })
         })
             .then(resp => resp.json())
             .then(data => {
-                if (data.status !== 200){
+                if (data.status !== 200) {
                     dispatch(authError(data.error))
                 } else {
                     dispatch(loginUser(data.user))
                     localStorage.setItem("token", data.token)
                     localStorage.setItem("user_id", data.user.id)
-                    
+
                 }
-            
-        })
+
+            })
     }
 }
 
@@ -69,21 +69,21 @@ export const getProfileFetch = () => {
             return fetch("https://brewdog-backend.herokuapp.com/api/v1/profile", {
                 method: "GET",
                 headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Authorization': `Bearer ${token}`
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data.error){ 
-                    localStorage.removeItem("token")
-                    localStorage.removeItem("user_id")
-                } else {
-                    dispatch(loginUser(data.user))
-                    // localStorage.setItem("user_id", data.user.id)
-                }
-            })
+                .then(resp => resp.json())
+                .then(data => {
+                    if (data.error) {
+                        localStorage.removeItem("token")
+                        localStorage.removeItem("user_id")
+                    } else {
+                        dispatch(loginUser(data.user))
+                        // localStorage.setItem("user_id", data.user.id)
+                    }
+                })
         }
     }
 }

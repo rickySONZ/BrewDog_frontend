@@ -6,7 +6,7 @@ const initialState = {
 }
 
 const favoriteReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case "GET_FAVORITES":
             return {
                 ...state,
@@ -24,14 +24,14 @@ const favoriteReducer = (state = initialState, action) => {
                 ...state,
                 favorites: {}
             }
-        
-            case "ADD_FAVORITE":
-                return {
-                    ...state,
-                    favorites: [...state.favorites, action.payload]
-                }
-            default:
-                return state
+
+        case "ADD_FAVORITE":
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload]
+            }
+        default:
+            return state
     }
 }
 

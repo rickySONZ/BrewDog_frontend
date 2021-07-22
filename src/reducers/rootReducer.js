@@ -4,7 +4,7 @@ import favoriteReducer from "./favoriteReducer";
 import signInReducer from './signInReducer'
 
 
-const rootReducer =  combineReducers({
+const rootReducer = combineReducers({
     breweriesR: breweryReducer,
     signInR: signInReducer,
     favoritesR: favoriteReducer

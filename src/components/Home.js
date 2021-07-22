@@ -15,20 +15,20 @@ class Home extends Component {
             <>
                 <SearchForm />
                 <Breweries />
-                <Map/>
+                <Map />
             </>
         );
     }
 }
 const mapStateToProps = (state) => ({
     currentUser: state.signInR.currentUser
-  })
+})
 
-  const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
     getProfileFetch: () => dispatch(getProfileFetch()),
-      logoutUser: () => dispatch(logoutUser()),
-      clearSearchedBreweries: () => dispatch(clearSearchedBreweries()),
-      getFavorites: ()=> dispatch(getFavorites())
-  })
+    logoutUser: () => dispatch(logoutUser()),
+    clearSearchedBreweries: () => dispatch(clearSearchedBreweries()),
+    getFavorites: () => dispatch(getFavorites())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
