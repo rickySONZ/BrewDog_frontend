@@ -82,6 +82,7 @@ width: 100%;
 overflow-y: scroll;
 right: 22%;
 position: relative;
+padding-bottom: 5%;
 }
 
 #mapid {
@@ -214,6 +215,7 @@ li {
 .favorites-container {
   overflow-y: scroll;
   width: 100%;
+  margin-top: 3%;
 }
 
 .sign-in-div {
@@ -246,7 +248,7 @@ li {
 .breweries-container h3 {
   text-decoration: underline;
   position: relative;
-  left: 7%;
+
 }
 
 @media only screen and (max-width: 630px) {
@@ -276,6 +278,10 @@ li {
   grid-row: 3/5;
   grid-column: 1/-1;
   height: 40vh;
+  margin: auto;
+    right: 8%;
+    justify-self: normal;
+    position: relative;
 }
   #favmapid {
     grid-column: 1/-1;
@@ -292,10 +298,13 @@ li {
     grid-row: 4/5;
     height: 42vh;
     margin: auto;
-    right: 0%;
+    right: 5%;
+    justify-self: normal;
+   
   }
   .breweries-container h3 {
     left: 0%;
+    right: 0%;
   }
   .navlink-logo-text {
     display: none;
