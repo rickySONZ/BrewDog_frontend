@@ -11,7 +11,6 @@ const Brewery = (props) => {
     const handleCheck = (event) => {
         if (event.target.checked === true) {
             dispatch(addFavorite(props.id))
-            //dispatch an action to add this to my favorites state
         }
         else if (event.target.checked === false) {
             let favId = favorites.find(f => f.brewery_id === props.id).id

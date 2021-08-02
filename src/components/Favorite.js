@@ -14,12 +14,12 @@ const Favorite = (props) => {
             <li key={props.name}><b>{props.name}</b><br />
                 {props.address}<br />
                 {props.city}
-            </li> <input type="checkbox"
+            </li>
+            <input type="checkbox"
                 id={`checkbox-${props.id}`}
                 key={fav_id}
                 defaultChecked={checkedState}
                 onClick={() => dispatch(deleteFavorite(fav_id))}
-
             />
         </>
     );

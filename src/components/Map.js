@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
-import { useMediaPredicate } from 'react-media-hook';
 
 function ChangeView({ center, zoom }) {
   const map = useMap();
@@ -19,7 +18,6 @@ const Map = () => {
         <MapContainer center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} zoom={11} scrollWheelZoom={false} style={{
           height: "90%",
           width: "95%"
-
         }}>
           <ChangeView center={[searchedBreweries[0].latitude, searchedBreweries[0].longitude]} />
           <TileLayer
@@ -48,7 +46,6 @@ const Map = () => {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
         </MapContainer>
       </div>
     )

@@ -30,7 +30,6 @@ function App() {
 
   return (
     <Router>
-
       <div className="App"
         style={{
           backgroundImage: `url(${Background})`

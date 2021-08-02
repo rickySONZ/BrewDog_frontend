@@ -28,8 +28,6 @@ const FavoriteMap = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {favorites.map((f, i) => {
-
-
                     if (f.brewery && f.brewery.longitude && f.brewery.latitude) {
                         return (
                             <Marker key={f.brewery.uid + i} position={[f.brewery.latitude, f.brewery.longitude]} >

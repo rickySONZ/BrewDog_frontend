@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { authError } from '../actions/auth';
 import { getSearchedBreweries } from '../actions/brewery';
-import { getFavorites } from '../actions/favorite';
+
 
 function SearchForm() {
 
